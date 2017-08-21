@@ -133,15 +133,15 @@
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="index.html">Admin</a>
+				     <li><a href="">Admin</a>
                     </li>
-					<li><a href="index1.html">Doctor</a>
+					<li><a href="index3.php">Doctor</a>
                     </li>
-                    <li><a href="index2.html">Nurse</a>
+                    <li><a href="index2.php">Nurse</a>
                     </li>
-                    <li><a href="index3.html">Accountant</a>
+                    <li><a href="index5.php">Accountant</a>
                     </li>
-					<li><a href="index4.html">Reciptionist</a>
+					<li><a href="index4.php">Reciptionist</a>
                     </li>
                   </ul>
                 </li>
@@ -168,8 +168,8 @@
                   <ul class="nav child_menu" style="display: none">
 				  <li><a href="pat_form.php">Add Patient</a></li>
                     <li><a href="pat_details.php">Patient Detail</a></li>
-					<li><a href="treat_form.php">Add Treatment</a></li>
-                    <li><a href="treat_details.php">Treatment Details</a></li>
+					<li><a href="treatment_form.php">Add Treatment</a></li>
+                    <li><a href="treatment_details.php">Treatment Details</a></li>
 					</ul>
                 </li>
                 <li><a><i class="fa fa-bed"></i> &nbsp; Bed Ward <span class="fa fa-chevron-down"></span></a>
@@ -187,7 +187,7 @@
                 </li>
 			 <li><a><i class="fa fa-edit"></i>  &nbsp; Notice Board <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Add Event</a></li>
+                    <li><a href="notice.php">Add Event</a></li>
 					<li><a href=".php">Veiw Notice Board</a></li>
                     </ul>
                </li>
@@ -199,8 +199,8 @@
                </li>
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Birth Report</a></li>
-					<li><a href=".php">Death Report</a></li>
+                    <li><a href="birth_detail.php">Birth Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -213,7 +213,6 @@
                 </li>
                 </ul>
             </div>
-			</div>
 
           </div>
           <!-- /sidebar menu -->
@@ -346,13 +345,11 @@ function myFunction() {
 <table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">
      <thead>
          <tr>
+            <th>Doctor Name</th>
             <th>Patient Name</th>
-			<th>Doctor Name</th>
-				
             <th>Treatment date</th>
             <th>Disease</th>
             <th>Discription</th>
-			<th> Details </th>
          </tr>
      </thead>
      <tbody>     
@@ -368,13 +365,11 @@ function myFunction() {
 			while ($row = mysqli_fetch_array ($result)) {
 		?>
 		<tr>
-		
 		<td><?php echo $row['pat_name']; ?></td>
 		<td><?php echo $row['dr_name']; ?></td>
 		<td><?php echo $row['treat_date']; ?></td>
          <td><?php echo $row['treat_disease']; ?></td>
-         <td><?php echo $row['treat_desc']; ?></td>
-		 <td><a href="details.php">Details</a></td></tr>
+         <td><?php echo $row['treat_desc']; ?></td></tr>
 		<?php } ?>
 
            
@@ -534,7 +529,7 @@ function doSearch() {
               </div>
             
           </div>
-</div>
+
  <center>
 <nav aria-label="Page navigation example">
   <ul class="pagination">
@@ -765,8 +760,6 @@ function doSearch() {
     });
   </script>
   <!-- /editor -->
-  </div>
-  </div>
 </body>
 
 </html>
