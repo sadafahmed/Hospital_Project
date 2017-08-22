@@ -87,15 +87,15 @@ session_start();
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="index.html">Admin</a>
+				     <li><a href="">Admin</a>
                     </li>
-					<li><a href="index1.html">Doctor</a>
+					<li><a href="index3.php">Doctor</a>
                     </li>
-                    <li><a href="index2.html">Nurse</a>
+                    <li><a href="index2.php">Nurse</a>
                     </li>
-                    <li><a href="index3.html">Accountant</a>
+                    <li><a href="index5.php">Accountant</a>
                     </li>
-					<li><a href="index4.html">Reciptionist</a>
+					<li><a href="index4.php">Reciptionist</a>
                     </li>
                   </ul>
                 </li>
@@ -122,8 +122,8 @@ session_start();
                   <ul class="nav child_menu" style="display: none">
 				  <li><a href="pat_form.php">Add Patient</a></li>
                     <li><a href="pat_details.php">Patient Detail</a></li>
-					<li><a href="treat_form.php">Add Treatment</a></li>
-                    <li><a href="treat_details.php">Treatment Details</a></li>
+					<li><a href="treatment_form.php">Add Treatment</a></li>
+                    <li><a href="treatment_details.php">Treatment Details</a></li>
 					</ul>
                 </li>
                 <li><a><i class="fa fa-bed"></i> &nbsp; Bed Ward <span class="fa fa-chevron-down"></span></a>
@@ -141,7 +141,7 @@ session_start();
                 </li>
 			 <li><a><i class="fa fa-edit"></i>  &nbsp; Notice Board <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Add Event</a></li>
+                    <li><a href="notice.php">Add Event</a></li>
 					<li><a href=".php">Veiw Notice Board</a></li>
                     </ul>
                </li>
@@ -153,8 +153,8 @@ session_start();
                </li>
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Birth Report</a></li>
-					<li><a href=".php">Death Report</a></li>
+                    <li><a href="birth_detail.php">Birth Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -234,6 +234,7 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
  
  <ul class="nav nav-tabs">
+ <li><a href="veiwbldd_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Veiw detail</a></li>
   <li><a href="blooddonor_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Blooddonor detail</a></li>
   <li class="active"><a href="blooddonor_form.php"><i class="glyphicon glyphicon-plus"></i> Add Blood donor</a></li>
   <div style='float: right;'>
@@ -334,7 +335,7 @@ include('db.php');
 	 //echo '<pre>'; print_r($_POST); die;
 	  
 	  
-      if($user_name== '' or $user_age== '' or $user_gender== '' or $user_bg== '' or $user_dd== '' or $user_contact_no== ''){
+      if($user_name=='' or $user_age=='' or $user_gender=='' or $user_bg=="" or $user_dd=="" or $user_contact_no==""){
 	 
 	 echo "<script>alert('Some Fields are empty')</script>";
 	 exit();
