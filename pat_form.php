@@ -79,32 +79,36 @@ session_start();
           <br />
 
           <!-- sidebar menu -->
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
-                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="index.html">Admin</a>
+				      <li><a href="admin_dashboard.php">Admin</a>
                     </li>
-					<li><a href="index1.html">Doctor</a>
+					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
-                    <li><a href="index2.html">Nurse</a>
+                    <li><a href="nurse_dashboard.php">Nurse</a>
                     </li>
-                    <li><a href="index3.html">Accountant</a>
+                    <li><a href="accountant_dashboard.php">Accountant</a>
                     </li>
-					<li><a href="index4.html">Reciptionist</a>
+					<li><a href="receptionist_dashboard.php">Reciptionist</a>
                     </li>
+                  </ul>
+                </li>
+				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Shedule <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                	 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-					 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
-                  </ul>
+					  </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -141,7 +145,7 @@ session_start();
                 </li>
 			 <li><a><i class="fa fa-edit"></i>  &nbsp; Notice Board <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Add Event</a></li>
+                    <li><a href="notice.php">Add Event</a></li>
 					<li><a href=".php">Veiw Notice Board</a></li>
                     </ul>
                </li>
@@ -153,8 +157,8 @@ session_start();
                </li>
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Birth Report</a></li>
-					<li><a href=".php">Death Report</a></li>
+                    <li><a href="birth_detail.php">Birth Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -230,10 +234,15 @@ session_start();
 		  <div>
 		  
 		<div class="container ">
+<?php
+	include ('header.php');
+?>  
 
+   
 		<link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
  
  <ul class="nav nav-tabs">
+ <li><a href="veiwpat_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Veiw detail</a></li>
   <li><a href="pat_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Patient Detail</a></li>
   <li class="active"><a href="pat_form.php"><i class="glyphicon glyphicon-plus"></i> Add Patient</a></li>
   <div style='float: right;'>
@@ -264,10 +273,14 @@ function myFunction() {
   padding-left: 350px;
   
 }
+h2
+{
+	font-size: 30px;
+}
 </style>
 
 
- <h1>Add New patient</h1>
+ <h2>Add New patient</h2>
       
 <?php
 
@@ -413,7 +426,7 @@ function myFunction() {
 			
 			</div>
 			
-			
+			</div></div>
 			
 			
 
@@ -451,7 +464,20 @@ function myFunction() {
         <!-- /page content -->
 
         <!-- footer content -->
-        
+        <footer>
+		<style>
+		.copyright-info
+		{
+			margin-top:-10px;
+		}	
+	</style>
+          <div class="copyright-info">
+            <h3 align="center" ><font size="5">KC Copyright &copy; 2017
+            </h3>
+          </div>
+		  
+          <div class="clearfix"></div>
+        </footer>
         <!-- /footer content -->
 
       </div>

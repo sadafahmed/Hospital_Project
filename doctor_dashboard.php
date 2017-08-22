@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hospital name </title>
+  <title>KC</title>
 
   <!-- Bootstrap core CSS -->
 
@@ -19,13 +19,15 @@
 
   <!-- Custom styling plus plugins -->
   <link href="css/custom.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.3.css" />
   <link href="css/icheck/flat/green.css" rel="stylesheet">
-  <link href="css/floatexamples.css" rel="stylesheet" />
-
-  
-  <link href="css/calendar/fullcalendar.css" rel="stylesheet">
-  <link href="css/calendar/fullcalendar.print.css" rel="stylesheet" media="print">
+  <!-- editor -->
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+  <link href="css/editor/external/google-code-prettify/prettify.css" rel="stylesheet">
+  <link href="css/editor/index.css" rel="stylesheet">
+  <!-- select2 -->
+  <link href="css/select/select2.min.css" rel="stylesheet">
+  <!-- switchery -->
+  <link rel="stylesheet" href="css/switchery/switchery.min.css" />
 
   <script src="js/jquery.min.js"></script>
 
@@ -53,7 +55,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-             <a href="index.html" class="site_title"><i class="fa fa-hospital-o"></i> <span>Hospital name</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-hospital-o"></i> <span>KC Hospital</span></a>
           </div>
           <div class="clearfix"></div>
 
@@ -73,77 +75,97 @@
           <br />
 
           <!-- sidebar menu -->
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-dashboard"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="index.html">Admin Dashboard</a>
+				     <li><a href="admin_dashboard.php">Admin</a>
                     </li>
-					<li><a href="index1.html">Doctor Dashboard</a>
+					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
-                    <li><a href="index2.html">Nurse Dashboard</a>
+                    <li><a href="nurse_dashboard.php">Nurse</a>
                     </li>
-                    <li><a href="index3.html">Accountant Dashboard</a>
+                    <li><a href="accountant_dashboard.php">Accountant</a>
                     </li>
-					<li><a href="index4.html">Reciptionist Dashboard</a>
+					<li><a href="receptionist_dashboard.php">Reciptionist</a>
                     </li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-user-md"></i> Docoter <span class="fa fa-chevron-down"></span></a>
+				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Shedule <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="dr_details.php">Docoter Detail</a>
-                    </li>
-                    <li><a href="form_advanced.html">Advanced Components</a>
-                    </li>
-                    
+                	 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-user"></i> Patient <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="pat_details.php">Patient Detail</a>
-                    </li>
-                    <li><a href="media_gallery.html">Media Gallery</a>
-                    </li>
-                   
-                   
-                  </ul>
+                    <li><a href="dr_form.php">Add Doctor </a></li>
+					<li><a href="dr_details.php">Veiw Doctor</a></li>
+				    </ul>
                 </li>
-                <li><a><i class="fa fa-bed"></i> Bed Ward <span class="fa fa-chevron-down"></span></a>
+				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="room_details.php">Room</a>
-                    </li>
-                   
-                  </ul>
+					 <li><a href="dp_form.php">Add Department</a></li>
+					 <li><a href="dp_details.php">Veiw Department</a></li>
+					 </ul>
                 </li>
-                <li><a><i class="glyphicon glyphicon-tint"></i> Blood bank <span class="fa fa-chevron-down"></span></a>
+				<li><a><i class="fa fa-calendar"></i>  &nbsp; Appointment <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="blooddonor_details.php">Manage blooddonor</a>
-                    </li>
-                    
-                  </ul>
+                    <li><a href="app_form.php">Add Appointment</a></li>
+					<li><a href="app_details.php">Veiw Appointment</a></li>
+                    </ul>
+               </li>
+                <li><a><i class="fa fa-user"></i> &nbsp; Patient <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+				  <li><a href="pat_form.php">Add Patient</a></li>
+                    <li><a href="pat_details.php">Patient Detail</a></li>
+					<li><a href="treatment_form.php">Add Treatment</a></li>
+                    <li><a href="treatment_details.php">Treatment Details</a></li>
+					</ul>
                 </li>
-              </ul>
-             
+                <li><a><i class="fa fa-bed"></i> &nbsp; Bed Ward <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+				  <li><a href="room_form.php">Add Room</a>
+                    <li><a href="room_details.php">Room Details</a>
+					 </li>
+                   </ul>
+                </li>
+                <li><a><i class="glyphicon glyphicon-tint"></i>  &nbsp;&nbsp;&nbsp;  Blood Donor <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+				  <li><a href="blooddonor_form.php">Add Blood donor</a></li>
+                    <li><a href="blooddonor_details.php">Blood donor detail</a></li>
+					 </ul>
+                </li>
+			 <li><a><i class="fa fa-edit"></i>  &nbsp; Notice Board <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="notice.php">Add Event</a></li>
+					<li><a href=".php">Veiw Notice Board</a></li>
+                    </ul>
+               </li>
+			   <li><a><i class="fa fa-list-alt"></i>  &nbsp; Bill <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+				  <li><a href="bill_form.php">Add Bill Details</a></li>
+                    <li><a href="bill_details.php">Veiw Bill</a></li>
+                    </ul>
+               </li>
+      <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="birth_detail.php">Birth Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
+                    </ul>
+               </li>
               <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> Profile <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     
                     <li><a href="profile.html"></a>
                     </li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    <li><a href="page_404.html">404 Error</a>
-                    </li>
-                    
-                  </ul>
-               
-              </ul>
+                </ul>
             </div>
 
           </div>
@@ -175,105 +197,25 @@
         <div class="nav_menu">
           <nav class="" role="navigation">
             <div class="nav toggle">
-              <a id="menu_toggle"><i class="fa fa-bars">&nbsp;&nbsp;Doctor</i></a>
+              <a id="menu_toggle"><i class="fa fa-bars">&nbsp;&nbsp;&nbsp;Doctor</i></a>
             </div>
 
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">John Doe
+                  
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                   <li><a href="javascript:;">  Profile</a>
                   </li>
-                  <li>
-                    <a href="javascript:;">
-                      <span class="badge bg-red pull-right">50%</span>
-                      <span>Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">Help</a>
-                  </li>
-                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  
+                  <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>
               </li>
 
-              <li role="presentation" class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">6</span>
-                </a>
-                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                  <li>
-                    <a>
-                      <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="text-center">
-                      <a>
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-
+              
             </ul>
           </nav>
         </div>
@@ -443,13 +385,20 @@ while($row = mysql_fetch_array($run)){
         </div>
 
 
-        <footer>
+             <footer>
+		<style>
+		.copyright-info
+		{
+			margin-top:-10px;
+		}	
+	</style>
           <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>    
-            </p>
+            <h3 align="center" ><font size="5">KC Copyright &copy; 2017
+            </h3>
           </div>
+		  
           <div class="clearfix"></div>
-        </footer>           
+        </footer>
 
 				  
 				  

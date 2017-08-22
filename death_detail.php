@@ -42,43 +42,6 @@
         <![endif]-->
 
 </head>
-<style>	
-			@media print {
-    .aside, .sidebar,.header[role="banner"],.copyright-info, .footer,.comments,.respond,.navbar nav_title ,
-	.pagination, .top_nav, .button, .left_col scroll-view, .col-md-3 left_col, .search, .container1, .input-group
-	,.panel-heading ,.to-hide,.nav_menu, #myDiv
-	{
-        display: none;
-    }
-	.nav navbar-nav navbar-right
-	{display: none;}
-.main_container, .content ,.main ,.table table-striped table-bordered table-hover {
-    width: 100%;
-    margin: 30px;
-    padding: 0px;
-}
-* {
-    color: #000;    
-    background-color: #fff;
-    @include box-shadow(none);
-    @include text-shadow(none);
-}
-	a::after {
-    content: "( "attr(href)" )"
-}	
-
-#dataTable{
-	margin: 20px;
-	width: 1000px;
-	font-size: 25px;
-	padding: 15px;
-	
-
-	}
-	}   
-
-
-</style>
 
 
 <body class="nav-md">
@@ -120,24 +83,28 @@
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="">Admin</a>
+				      <li><a href="admin_dashboard.php">Admin</a>
                     </li>
-					<li><a href="index3.php">Doctor</a>
+					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
-                    <li><a href="index2.php">Nurse</a>
+                    <li><a href="nurse_dashboard.php">Nurse</a>
                     </li>
-                    <li><a href="index5.php">Accountant</a>
+                    <li><a href="accountant_dashboard.php">Accountant</a>
                     </li>
-					<li><a href="index4.php">Reciptionist</a>
+					<li><a href="receptionist_dashboard.php">Reciptionist</a>
                     </li>
+                  </ul>
+                </li>
+				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Shedule <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                	 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-					 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
-                  </ul>
+		  </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -266,15 +233,14 @@
   <?php
 	include ('header.php');
 ?>
-<div id="myDiv"> 
+
  <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
-   
+ 
  <ul class="nav nav-tabs">
-
-
  <li><a href="death_form.php"><i class="glyphicon glyphicon-plus"></i> Death Form</a></li>
  <li><a href="death_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Death details</a></li>
   <li class="active" ><a href="death_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i>Veiw full detail</a></li>
+  
   <div style='float: right;'>
  <li> <button onclick="myFunction()" type="button" class="btn btn-info btn-sm">
           <span class="glyphicon glyphicon-print"> Print</span> 
@@ -287,12 +253,11 @@ function myFunction() {
 </script>
 </li>
 </div>
-
 	  <div style='float: right;'>
 		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
 </div>
   </ul>
-</div>  
+  
  <div class="row">
 		 
   <div class="col-lg-12">
@@ -418,10 +383,16 @@ input[type=time]{
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
+<footer>
+		<style>
+		.copyright-info
+		{
+			margin-top:-10px;
+		}	
+	</style>
           <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-            </p>
+            <h3 align="center" ><font size="5">KC Copyright &copy; 2017
+            </h3>
           </div>
 		  
           <div class="clearfix"></div>

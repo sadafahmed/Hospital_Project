@@ -122,24 +122,28 @@
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="">Admin</a>
+				      <li><a href="admin_dashboard.php">Admin</a>
                     </li>
-					<li><a href="index3.php">Doctor</a>
+					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
-                    <li><a href="index2.php">Nurse</a>
+                    <li><a href="nurse_dashboard.php">Nurse</a>
                     </li>
-                    <li><a href="index5.php">Accountant</a>
+                    <li><a href="accountant_dashboard.php">Accountant</a>
                     </li>
-					<li><a href="index4.php">Reciptionist</a>
+					<li><a href="receptionist_dashboard.php">Reciptionist</a>
                     </li>
+                  </ul>
+                </li>
+				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Shedule <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                	 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-					 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
-                  </ul>
+					 </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -268,7 +272,7 @@
  <?php
 	include ('header.php');
 ?>
-	<div id="myDiv">
+
  <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
  
  <ul class="nav nav-tabs">
@@ -291,7 +295,7 @@ function myFunction() {
 		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
 </div>
   </ul>
-  </div>
+  
  <div class="row">
 		 
   <div class="col-lg-12">
@@ -328,7 +332,7 @@ p{
 <div class="form-inline">
 
 		 <form  method="post" action="death_form.php">
-        <p align="center">Blood Donor Details</p> 
+        <p>Blood Donor Details</p> 
             <div>
            <label> Name  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="name"  /><br><br>
             </div> 
@@ -396,9 +400,15 @@ p{
 
         <!-- footer content -->
         <footer>
+		<style>
+		.copyright-info
+		{
+			margin-top:-10px;
+		}	
+	</style>
           <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-            </p>
+            <h3 align="center" ><font size="5">KC Copyright &copy; 2017
+            </h3>
           </div>
 		  
           <div class="clearfix"></div>

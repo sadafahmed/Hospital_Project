@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hospital name </title>
+  <title>KC </title>
 
   <!-- Bootstrap core CSS -->
 
@@ -51,12 +51,10 @@
 
 </head>
 
-
-<body class="nav-md">
 <style>	
 			@media print {
     .aside, .sidebar,.header[role="banner"],.copyright-info, .footer,.comments,.respond,.navbar nav_title ,
-	.pagination, .top_nav, .button, .left_col scroll-view, .col-md-3 left_col, .search, .container1, .input-group
+	.pagination, .top_nav, .button, .left_col scroll-view, .search,.input-group
 	,.panel-heading ,.to-hide,.nav_menu, #myDiv
 	{
         display: none;
@@ -91,6 +89,9 @@
 
 </style>
 
+
+<body class="nav-md">
+
   <div class="container body">
 
 
@@ -120,7 +121,7 @@
           <br />
 
           <!-- sidebar menu -->
-        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
               <h3>General</h3>
@@ -149,7 +150,7 @@
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-					 </ul>
+                  </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -248,19 +249,18 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  
+                 
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                   <li><a href="javascript:;">  Profile</a>
                   </li>
-                   <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>
               </li>
 
               
-
             </ul>
           </nav>
         </div>
@@ -278,24 +278,23 @@
   
   
 <div class="container">
-<?php
-	include ('header.php');
-?>  
 
-   
 
 
 <!-- Export a Table to Excel - START -->
 <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
 
 <div class="container">
+ <?php
+	include ('header.php');
+?>
     
 
    
 			<div id="myDiv">
 			<ul class="nav nav-tabs">
-  <li class="active"><a href="room_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Room detail</a></li>
-  <li><a href="room_form.php"><i class="glyphicon glyphicon-plus"></i> Add room</a></li>
+   <li class="active"><a href="account_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Nurse detail</a></li>
+  <li><a href="account_form.php"><i class="glyphicon glyphicon-plus"></i> Add Nurse</a></li>
   <div style='float: right;'>
   
  <li> <button onclick="myFunction()" type="button" class="btn btn-info btn-sm">
@@ -315,8 +314,8 @@ function myFunction() {
   </ul>
   
   
-  
-    </div>
+  </div>
+    
              
 			 
 		
@@ -338,62 +337,53 @@ function myFunction() {
   <option value="">50</option>
   <option value="">All</option>
 </select> 
-    <label for="show entiries"><small>Entries</label>
+    <label for="show entiries">Entries</label>
        </small>
 	   
   </div>
    </div> <br><br>
    </div>
-   
 <table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">
-    <thead>
+     <thead>
          <tr>
-			<th>Doctor Name</th>
-            <th>Patient Name</th>
-			<th>Room Type</th>
-			<th>Admit date</th>
-			<th>Discharge charges</th>
-			<th>Total charges</th>
-			
+            <th>Name</th>
+            <th>Address</th>
+			<th>Contact No</th>
          </tr>
      </thead>
      <tbody>     
-         
-		<?php
+        <?php
 
 include 'db.php';
 
-		$sql = "SELECT room.*, doctor.dr_name, patient.pat_name
-				FROM room 
-				LEFT JOIN doctor ON doctor.dr_id = room.dr_id
-				LEFT JOIN patient ON patient.pat_id = room.pat_id";
-				$result = mysqli_query($mysqli, $sql);
-				while ($row = mysqli_fetch_assoc($result)) {
-					?>
-<tr>					<td><?php echo $row['dr_name']; ?></td>
-					<td><?php echo $row['pat_name']; ?></td>
-					<td><?php echo $row['room_type']; ?></td>
-					<td><?php echo $row['room_admit_date']; ?></td>
-					<td><?php echo $row['room_discharge_date']; ?></td>
-					<td><?php echo $row['room_t_charges']; ?></td> </tr>
-					<?php } ?>
+$query= "select *from accountant order by 1 desc LIMIT 10";
 
-																				
-																			
+$run= mysqli_query($mysqli, $query);
 
-																				
- 
-     </tbody>
-</table>
+while($row = mysqli_fetch_array($run)){
+	
+	$name = $row[1];
+	$add = $row[4];
+	$contNo = $row[5];
+	 
+	
 
+?>
 <style>
 a{text-decoration: none;}
 </style>
+<tr>
+<td><?php echo $name; ?></td>
+<td><?php echo $add; ?></td>
+<td><?php echo $contNo; ?></td>
+</tr>
+<?php } 
 
+ ?>
 
- 
-		 
-		
+       
+     </tbody>
+</table>
 
 
 <script>
@@ -546,7 +536,7 @@ function doSearch() {
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="dform.php">1</a></li>
+    <li class="page-item"><a class="page-link" href="account_details.php">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
@@ -556,7 +546,7 @@ function doSearch() {
         <!-- /page content -->
 
         <!-- footer content -->
-       <footer>
+        <footer>
 		<style>
 		.copyright-info
 		{
@@ -778,6 +768,7 @@ function doSearch() {
     });
   </script>
   <!-- /editor -->
-</body>
+</div>
+  </body>
 
 </html>

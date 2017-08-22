@@ -133,24 +133,28 @@
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="index.html">Admin</a>
+				     <li><a href="admin_dashboard.php">Admin</a>
                     </li>
-					<li><a href="index1.html">Doctor</a>
+					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
-                    <li><a href="index2.html">Nurse</a>
+                    <li><a href="nurse_dashboard.php">Nurse</a>
                     </li>
-                    <li><a href="index3.html">Accountant</a>
+                    <li><a href="accountant_dashboard.php">Accountant</a>
                     </li>
-					<li><a href="index4.html">Reciptionist</a>
+					<li><a href="receptionist_dashboard.php">Reciptionist</a>
                     </li>
+                  </ul>
+                </li>
+				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Shedule <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                	 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-					 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
-                  </ul>
+					 </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -168,8 +172,8 @@
                   <ul class="nav child_menu" style="display: none">
 				  <li><a href="pat_form.php">Add Patient</a></li>
                     <li><a href="pat_details.php">Patient Detail</a></li>
-					<li><a href="treat_form.php">Add Treatment</a></li>
-                    <li><a href="treat_details.php">Treatment Details</a></li>
+					<li><a href="treatment_form.php">Add Treatment</a></li>
+                    <li><a href="treatment_details.php">Treatment Details</a></li>
 					</ul>
                 </li>
                 <li><a><i class="fa fa-bed"></i> &nbsp; Bed Ward <span class="fa fa-chevron-down"></span></a>
@@ -187,7 +191,7 @@
                 </li>
 			 <li><a><i class="fa fa-edit"></i>  &nbsp; Notice Board <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Add Event</a></li>
+                    <li><a href="notice.php">Add Event</a></li>
 					<li><a href=".php">Veiw Notice Board</a></li>
                     </ul>
                </li>
@@ -199,8 +203,8 @@
                </li>
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href=".php">Birth Report</a></li>
-					<li><a href=".php">Death Report</a></li>
+                    <li><a href="birth_detail.php">Birth Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -213,7 +217,6 @@
                 </li>
                 </ul>
             </div>
-			</div>
 
           </div>
           <!-- /sidebar menu -->
@@ -280,7 +283,11 @@
   
   
 <div class="container">
+<?php
+	include ('header.php');
+?>  
 
+   
 
 
 <!-- Export a Table to Excel - START -->
@@ -346,13 +353,11 @@ function myFunction() {
 <table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">
      <thead>
          <tr>
+            <th>Doctor Name</th>
             <th>Patient Name</th>
-			<th>Doctor Name</th>
-				
             <th>Treatment date</th>
             <th>Disease</th>
             <th>Discription</th>
-			<th> Details </th>
          </tr>
      </thead>
      <tbody>     
@@ -368,13 +373,11 @@ function myFunction() {
 			while ($row = mysqli_fetch_array ($result)) {
 		?>
 		<tr>
-		
 		<td><?php echo $row['pat_name']; ?></td>
 		<td><?php echo $row['dr_name']; ?></td>
 		<td><?php echo $row['treat_date']; ?></td>
          <td><?php echo $row['treat_disease']; ?></td>
-         <td><?php echo $row['treat_desc']; ?></td>
-		 <td><a href="details.php">Details</a></td></tr>
+         <td><?php echo $row['treat_desc']; ?></td></tr>
 		<?php } ?>
 
            
@@ -534,7 +537,7 @@ function doSearch() {
               </div>
             
           </div>
-</div>
+
  <center>
 <nav aria-label="Page navigation example">
   <ul class="pagination">
@@ -550,9 +553,15 @@ function doSearch() {
 
         <!-- footer content -->
         <footer>
+		<style>
+		.copyright-info
+		{
+			margin-top:-10px;
+		}	
+	</style>
           <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-            </p>
+            <h3 align="center" ><font size="5">KC Copyright &copy; 2017
+            </h3>
           </div>
 		  
           <div class="clearfix"></div>
@@ -765,8 +774,6 @@ function doSearch() {
     });
   </script>
   <!-- /editor -->
-  </div>
-  </div>
 </body>
 
 </html>

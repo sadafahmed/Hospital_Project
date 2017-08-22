@@ -104,9 +104,9 @@
             <div>
               <input type="text" name="add" class="form-control" placeholder="Address"/>
             </div>
-               <div>
-	  <input type="submit" name="submit" value="register" class="btn-info btn-lg /><br>
-            </div>
+               <div style=" padding-left:70px;   ">
+	  <input type="submit" name="submit" value="register" class="btn-info btn-lg" /><br>
+           </div>
 		           
          
       <div class="clearfix"></div>
@@ -116,9 +116,20 @@
               <div class="clearfix"></div>
               <br />
               <div>
-                <h1><i class="fa fa-hospital-o" style="font-size: 26px;"></i> Hospital name!</h1>
-
-                <p>©2017 All Rights Reserved.Hospital name. Privacy and Terms</p>
+                               <footer>
+		<style>
+		.copyright-info
+		{
+			margin-top:-10px;
+		}	
+	</style>
+          <div class="copyright-info">
+            <h3 align="center" ><font size="5">KC Copyright &copy; 2017
+            <i class="fa fa-hospital-o" style="font-size: 26px;"></i> </h3>
+          </div>
+		  
+          <div class="clearfix"></div>
+        </footer>
               </div>
             </div>
           </form>

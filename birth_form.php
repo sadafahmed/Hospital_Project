@@ -83,24 +83,28 @@
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="">Admin</a>
+				     <li><a href="admin_dashboard.php">Admin</a>
                     </li>
-					<li><a href="index3.php">Doctor</a>
+					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
-                    <li><a href="index2.php">Nurse</a>
+                    <li><a href="nurse_dashboard.php">Nurse</a>
                     </li>
-                    <li><a href="index5.php">Accountant</a>
+                    <li><a href="accountant_dashboard.php">Accountant</a>
                     </li>
-					<li><a href="index4.php">Reciptionist</a>
+					<li><a href="receptionist_dashboard.php">Reciptionist</a>
                     </li>
+                  </ul>
+                </li>
+				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Shedule <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                	 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-					 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
-                  </ul>
+					 </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -226,7 +230,11 @@
 		  <div>
 		  
  <div class="container">
- 
+ <?php
+	include ('header.php');
+?>  
+
+   
  <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
  
  <ul class="nav nav-tabs">
@@ -262,10 +270,15 @@ function myFunction() {
   padding-left: 350px;
   
 }
+
+h2
+{
+	font-size: 30px;
+}
 </style>
 
 		
- <h1>Birth Form</h1>
+ <h2>Birth Form</h2>
       
 <div class="main">
 
@@ -403,10 +416,16 @@ include('db.php');
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
+       <footer>
+		<style>
+		.copyright-info
+		{
+			margin-top:-10px;
+		}	
+	</style>
           <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-            </p>
+            <h3 align="center" ><font size="5">KC Copyright &copy; 2017
+            </h3>
           </div>
 		  
           <div class="clearfix"></div>

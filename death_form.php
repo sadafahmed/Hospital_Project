@@ -5,7 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Hospital name </title>
 
@@ -39,57 +40,11 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-		
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
-
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
 
 </head>
 
 
 <body class="nav-md">
-<style>	
-			@media print {
-    .aside, .sidebar,.header[role="banner"],.copyright-info, .footer,.comments,.respond,.navbar nav_title ,
-	.pagination, .top_nav, .button, .left_col scroll-view, .col-md-3 left_col, .search, .container1, .input-group
-	,.panel-heading ,.to-hide,.nav_menu, #myDiv
-	{
-        display: none;
-    }
-	.nav navbar-nav navbar-right
-	{display: none;}
-.main_container, .content ,.main ,.table table-striped table-bordered table-hover {
-    width: 100%;
-    margin: 30px;
-    padding: 0px;
-}
-* {
-    color: #000;    
-    background-color: #fff;
-    @include box-shadow(none);
-    @include text-shadow(none);
-}
-	a::after {
-    content: "( "attr(href)" )"
-}	
-
-#dataTable{
-	margin: 20px;
-	width: 1000px;
-	font-size: 25px;
-	padding: 15px;
-	
-
-	}
-	}   
-
-
-</style>
 
   <div class="container body">
 
@@ -100,7 +55,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-hospital-o"></i> <span>KC Hospital</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-hospital-o"></i> <span>Hospital name</span></a>
           </div>
           <div class="clearfix"></div>
 
@@ -120,7 +75,7 @@
           <br />
 
           <!-- sidebar menu -->
-        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
               <h3>General</h3>
@@ -128,15 +83,15 @@
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				     <li><a href="admin_dashboard.php">Admin</a>
+				     <li><a href="">Admin</a>
                     </li>
-					<li><a href="doctor_dashboard.php">Doctor</a>
+					<li><a href="index3.php">Doctor</a>
                     </li>
-                    <li><a href="nurse_dashboard.php">Nurse</a>
+                    <li><a href="index2.php">Nurse</a>
                     </li>
-                    <li><a href="accountant_dashboard.php">Accountant</a>
+                    <li><a href="index5.php">Accountant</a>
                     </li>
-					<li><a href="receptionist_dashboard.php">Reciptionist</a>
+					<li><a href="index4.php">Reciptionist</a>
                     </li>
                   </ul>
                 </li>
@@ -248,19 +203,18 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  
+                 
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                   <li><a href="javascript:;">  Profile</a>
                   </li>
-                   <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>
               </li>
 
               
-
             </ul>
           </nav>
         </div>
@@ -274,248 +228,160 @@
 
           
 		  <div>
-		
-  
-  
-<div class="container">
-<?php
+		  
+ <div class="container">
+ <?php
 	include ('header.php');
 ?>  
 
    
-
-
-<!-- Export a Table to Excel - START -->
-<link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
-
-<div class="container">
-    
-
-   
-			<div id="myDiv">
-			<ul class="nav nav-tabs">
-  <li class="active"><a href="room_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Room detail</a></li>
-  <li><a href="room_form.php"><i class="glyphicon glyphicon-plus"></i> Add room</a></li>
-  <div style='float: right;'>
+ <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
+ 
+ <ul class="nav nav-tabs">
+ <li class="active"><a href="death_form.php"><i class="glyphicon glyphicon-plus"></i> Death form</a></li>
+ <li><a href="death_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Death details</a></li>
+  <li><a href="death_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Veiw full details</a></li>
   
+  <div style='float: right;'>
  <li> <button onclick="myFunction()" type="button" class="btn btn-info btn-sm">
           <span class="glyphicon glyphicon-print"> Print</span> 
         <script>
 function myFunction() {
-    window.print("");
-	
+    window.print();
+	 
 	
 }
 </script>
 </li>
-		</div>
-		  <div style='float: right;'>
+</div>
+	  <div style='float: right;'>
 		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
 </div>
   </ul>
   
-  
-  
-    </div>
-             
-			 
-		
-       <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                           			<form class="form-inline">	
-  	
-
-<input type="text" id="searchTerm" class="form-control" onkeyup="doSearch()" size="30" placeholder="Search...."/>
-
-<div style='float: right;'>
-  <div class="input-group" style="font-size: 15px";>
-    <label for="show entiries">Show:</label>
-     <select>
-  <option value="">10</option>
-  <option value="">20</option>
-  <option value="">50</option>
-  <option value="">All</option>
-</select> 
-    <label for="show entiries"><small>Entries</label>
-       </small>
-	   
-  </div>
-   </div> <br><br>
-   </div>
-   
-<table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">
-    <thead>
-         <tr>
-			<th>Doctor Name</th>
-            <th>Patient Name</th>
-			<th>Room Type</th>
-			<th>Admit date</th>
-			<th>Discharge charges</th>
-			<th>Total charges</th>
-			
-         </tr>
-     </thead>
-     <tbody>     
-         
-		<?php
-
-include 'db.php';
-
-		$sql = "SELECT room.*, doctor.dr_name, patient.pat_name
-				FROM room 
-				LEFT JOIN doctor ON doctor.dr_id = room.dr_id
-				LEFT JOIN patient ON patient.pat_id = room.pat_id";
-				$result = mysqli_query($mysqli, $sql);
-				while ($row = mysqli_fetch_assoc($result)) {
-					?>
-<tr>					<td><?php echo $row['dr_name']; ?></td>
-					<td><?php echo $row['pat_name']; ?></td>
-					<td><?php echo $row['room_type']; ?></td>
-					<td><?php echo $row['room_admit_date']; ?></td>
-					<td><?php echo $row['room_discharge_date']; ?></td>
-					<td><?php echo $row['room_t_charges']; ?></td> </tr>
-					<?php } ?>
-
-																				
-																			
-
-																				
- 
-     </tbody>
-</table>
-
-<style>
-a{text-decoration: none;}
-</style>
-
-
- 
+ <div class="row">
 		 
-		
-
-
-<script>
-function doSearch() {
-    var searchText = document.getElementById('searchTerm').value;
-    var targetTable = document.getElementById('dataTable');
-    var targetTableColCount;
-            
-    //Loop through table rows
-    for (var rowIndex = 0; rowIndex < targetTable.rows.length; rowIndex++) {
-        var rowData = '';
-
-        //Get column count from header row
-        if (rowIndex == 0) {
-           targetTableColCount = targetTable.rows.item(rowIndex).cells.length;
-           continue; //do not execute further code for header row.
-        }
-                
-        //Process data rows. (rowIndex >= 1)
-        for (var colIndex = 0; colIndex < targetTableColCount; colIndex++) {
-            rowData += targetTable.rows.item(rowIndex).cells.item(colIndex).textContent;
-        }
-
-        //If search term is not found in row data
-        //then hide the row, else show
-        if (rowData.indexOf(searchText) == -1)
-            targetTable.rows.item(rowIndex).style.display = 'none';
-        else
-            targetTable.rows.item(rowIndex).style.display = 'table-row';
-    }
+  <div class="col-lg-12">
+  		  <style>
+.col-lg-12
+ {
+  text-align: center;
+  width: 700px;
+  padding-left: 350px;
+  
 }
 
-
-
-</script>
-<script>
-
-<!-- you need to include the shieldui css and js assets in order for the components to work -->
-<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/jszip.min.js"></script>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        $("#exportButton").click(function () {
-            // parse the HTML table element having an id=exportTable
-            var dataSource = shield.DataSource.create({
-                data: "#exportTable",
-                schema: {
-                    type: "table",
-                    fields: {
-                        Name: { type: String },
-                        Age: { type: Number },
-                        Email: { type: String }
-                    }
-                }
-            });
-
-            // when parsing is done, export the data to Excel
-            dataSource.read().then(function (data) {
-                new shield.exp.OOXMLWorkbook({
-                    author: "PrepBootstrap",
-                    worksheets: [
-                        {
-                            name: "PrepBootstrap Table",
-                            rows: [
-                                {
-                                    cells: [
-                                        {
-                                            style: {
-                                                bold: true
-                                            },
-                                            type: String,
-                                            value: "Name"
-                                        },
-                                        {
-                                            style: {
-                                                bold: true
-                                            },
-                                            type: String,
-                                            value: "Age"
-                                        },
-                                        {
-                                            style: {
-                                                bold: true
-                                            },
-                                            type: String,
-                                            value: "Email"
-                                        }
-                                    ]
-                                }
-                            ].concat($.map(data, function(item) {
-                                return {
-                                    cells: [
-                                        { type: String, value: item.Name },
-                                        { type: Number, value: item.Age },
-                                        { type: String, value: item.Email }
-                                    ]
-                                };
-                            }))
-                        }
-                    ]
-                }).saveAs({
-                    fileName: "PrepBootstrapExcel"
-                });
-            });
-        });
-    });
-</script>
-<style>
-    #exportButton {
-        border-radius: 0;
-    }
+h2
+{
+	font-size: 30px;
+}
 </style>
 
-<!-- Export a Table to Excel - END -->
+		
+ <h2>Death Form</h2>
+      
+<div class="main">
 
+		 <form  method="post" action="death_form.php">
+            <div>
+           <input type="text" class="form-control" name="name" placeholder="Name..." style="text-transform: capitalize"; /><br>
+            </div>
+			 <div>
+           <input type="text" class="form-control" name="gardian_name" placeholder="Gardian Name..." style="text-transform: capitalize"; /><br>
+            </div>
+			<div>
+           <input type="text" class="form-control" name="age" placeholder="Age..."/><br>
+            </div>
+					<div>
+           <label><b> Gender</b> </label>
+		  <input type="radio" name="gender" value="male"> Male
+		  <input type="radio" name="gender" value="female"> Female
+		  </div><br>
+		   <div>
+           <input type="text" class="form-control" name="nic" placeholder="N.I.C no:" /><br>
+            </div>
+			<div>
+           <input type="text" class="form-control" name="address" placeholder="address:" style="text-transform: capitalize"; /><br>
+            </div>
+			<div>
+           <input type="text" class="form-control" name="admitted" placeholder="Was Admitted in..." style="text-transform: capitalize"; /><br>
+            </div>
+			<div>
+          <input placeholder="On date"  class="form-control"type="text" onfocus="(this.type='date')" name="admit_date"><br>
+            </div>
+		  <div>
+          <input type="text" class="form-control" name="disease" placeholder="As case of..." style="text-transform: capitalize"; /><br>
+            </div>
+		    <div>
+          <input placeholder="Expired on"  class="form-control"type="text" onfocus="(this.type='date')" name="expired"><br>
+            </div>
+          <div>
+          <input placeholder="Expired at"  class="form-control"type="text" onfocus="(this.type='time')" name="expired_at"><br>
+            </div>
+			<div>
+          <input type="text" class="form-control" name="reg" placeholder="Reg No..."  /><br>
+            </div>
+			<br><br>
+            <div>
+	  <input type="submit" name="submit" class="btn btn-lg btn-danger " value="Generate death report" al /><br>
+            </div>
+			
+			</form>
+			
+
+
+			<?php
+	
+	
+include('db.php');	
+
+	if(isset($_POST['submit'])){
+	
+      
+	  $user_name= $_POST['name'];	
+	  $user_gardian_name= $_POST['gardian_name'];	
+	  $user_age= $_POST['age'];
+	  $user_gender= $_POST['gender'];
+	  $user_nic= $_POST['nic'];
+      $user_address= $_POST['address'];
+	  $user_admitted= $_POST['admitted'];
+	  $user_admit_date= $_POST['admit_date'];
+	  $user_disease= $_POST['disease'];
+	  $user_expired= $_POST['expired'];
+	  $user_expired_at= $_POST['expired_at'];
+	  $user_reg= $_POST['reg'];
+	  
+	  	
+ 
+	 if($user_name=='' or $user_gardian_name=='' or $user_age=='' or $user_gender=='' or $user_nic=='' or $user_address=="" or $user_admitted=="" or $user_admit_date=="" or $user_disease=="" or $user_expired==""or $user_expired_at==""or $user_reg==""){
+	 
+	 echo "<script>alert('Some Fields are empty')</script>";
+	 exit();
+ }
+
+ $query ="insert into death(name, gardian_name, age, gender, nic, address, admitted, admit_date, disease, expired, expired_at, reg) VALUES
+ ('$user_name','$user_gardian_name','$user_age','$user_gender','$user_nic','$user_address','$user_admitted','$user_admit_date','$user_disease','$user_expired','$user_expired_at','$user_reg')";
+ 
+ if(mysql_query($query)){
+	
+	echo "<script>window.open('death_details.php','_self')</script>";	
+		}
+		else
+		{
+		echo "<script>alert('try Another id');</script>";
+	
+		}
+	}
+
+?>	
+		
 </div>
 
+	  
           <div class="clearfix"></div>
                   <div class="clearfix"></div>
                 </div>
+			
                 <div class="x_content">
                   <br />
                   <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
@@ -541,22 +407,13 @@ function doSearch() {
               </div>
             
           </div>
+		  
+</div>
 
- <center>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="dform.php">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
-</center>
         <!-- /page content -->
 
         <!-- footer content -->
-       <footer>
+        <footer>
 		<style>
 		.copyright-info
 		{
@@ -572,7 +429,12 @@ function doSearch() {
         </footer>
         <!-- /footer content -->
 
-     
+      </div>
+
+    </div>
+  
+</div>
+</div>
   <div id="custom_notifications" class="custom-notifications dsp_none">
     <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
     </ul>
