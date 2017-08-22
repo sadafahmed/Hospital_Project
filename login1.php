@@ -112,7 +112,7 @@ session_start();
 	 
 	  $usercategory = $_POST['acc_type'];
 	  $user_email = $_POST['email'];
-	  $user_pass = $_POST['pass'];
+	  $user_pass =md5( $_POST['pass']);
 	   
 	 if($usercategory=='') {
 		 
@@ -143,14 +143,14 @@ session_start();
 				header("Location: index.php"); // This line triggers a redirect if the user_type is admin
 						} 
 			elseif ($usercategory == 'doctor'){
-				header("Location: drform.php"); // This line triggers for other user_types
+				header("Location: dr_form.php"); // This line triggers for other user_types
 			}
 			 
 	elseif ($usercategory == 'accountant'){
-				header("Location: drform.php"); // This line triggers for other user_types
+				header("Location: dr_form.php"); // This line triggers for other user_types
 			}
 	elseif ($usercategory == 'receptionist'){
-				header("Location: drform.php"); // This line triggers for other user_types
+				header("Location: dr_form.php"); // This line triggers for other user_types
 			}
 			
 				}
