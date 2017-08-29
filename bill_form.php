@@ -1,5 +1,7 @@
 <?php
-session_start();
+include ('session.php');
+	
+include('db.php');	
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +14,7 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hospital name </title>
+  <title>KC </title>
 
   <!-- Bootstrap core CSS -->
 
@@ -67,11 +69,12 @@ session_start();
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+               <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -158,18 +161,10 @@ session_start();
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_detail.php">Death Report</a></li>
+					<li><a href="death_details.php">Death Report</a></li>
                     </ul>
                </li>
-              <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    
-                    <li><a href="profile.html"></a>
-                    </li>
-                  </ul>
-                </li>
-                </ul>
+
             </div>
 
           </div>
@@ -254,9 +249,7 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+	  
   </ul>
  
           <div class="row">
@@ -288,21 +281,21 @@ h2
             <input type="text" name="reg_id" class="form-control" placeholder="Registration ID.." autofocus/><br>
             </div>
 			<div>
-			<input type="text" name="name" class="form-control" placeholder="Patient Name.." />
+			<input type="text" name="name" class="form-control" placeholder="Patient Name.." style="text-transform: capitalize";/>
 			</div><br>
 			<div>
             <input type="text" name="age" class="form-control" placeholder="Age.." /><br>
             </div>
             <div>
             <label> Sex </label>
-		    <input type="radio" name="gendr" value="male"> Male
-		    <input type="radio" name="gendr" value="female"> Female
+		    <input type="radio" name="gender" value="male"> Male
+		    <input type="radio" name="gender" value="female"> Female
             </div><br>
-		    <input type="text" name="Occupation" class="form-control" placeholder="Occupation .."/>
+		    <input type="text" name="Occupation" class="form-control" placeholder="Occupation .." style="text-transform: capitalize";/>
 		    </div><br>
             
 			<div>
-            <input type="text" name="address" class="form-control" placeholder="Address.."  /><br>
+            <input type="text" name="address" class="form-control" placeholder="Address.." style="text-transform: capitalize"; /><br>
             </div>
 		<div>          
 		    <input type="text" name="room" class="form-control" placeholder="Room No.."/>
@@ -338,7 +331,7 @@ h2
             <input type="text" name="xray" class="form-control" placeholder="X-ray Charges.."  /><br>
             </div>
 			<div>
-            <input type="text" name="gass_charge" class="form-control" placeholder="Sui gas/Electricity Charges.."  /><br>
+            <input type="text" name="charge" class="form-control" placeholder="Sui gas/Electricity Charges.."  /><br>
             </div>
 			<div>
             <input type="text" name="nurse" class="form-control" placeholder="Nursing Care Charges.."  /><br>
@@ -360,18 +353,14 @@ h2
 			</form>
 			
 		<?php
-	
-	
-include('db.php');	
-
+		$null='Null';
 	if(isset($_POST['submit'])){
-	
+		
 	  $reg_id= mysqli_real_escape_string($mysqli, $_POST['reg_id']);		
 	  $user_name= mysqli_real_escape_string($mysqli, $_POST['name']);		
 	  $age= mysqli_real_escape_string($mysqli, $_POST['age']);		
-	  $gender= mysqli_real_escape_string($mysqli, $_POST['gendr']);
+	  $gender= mysqli_real_escape_string($mysqli, $_POST['gender']);
 	  $occupation= mysqli_real_escape_string($mysqli, $_POST['Occupation']);
-	  
 	  $address= mysqli_real_escape_string ($mysqli, $_POST['address']);
 	  $room_no= mysqli_real_escape_string($mysqli, $_POST['room']);
 	  $add_date= mysqli_real_escape_string($mysqli, $_POST['add_date']);
@@ -385,7 +374,7 @@ include('db.php');
 	  
 	  $dressing= mysqli_real_escape_string($mysqli, $_POST['dressing']);
 	  $xray= mysqli_real_escape_string($mysqli, $_POST['xray']);
-	  $gass_charge= mysqli_real_escape_string($mysqli, $_POST['charge']);
+	  $gass_chargee= mysqli_real_escape_string($mysqli, $_POST['charge']);
 	  $nurse= mysqli_real_escape_string($mysqli, $_POST['nurse']);
 	  
 	  $lab= mysqli_real_escape_string($mysqli, $_POST['lab']);
@@ -403,10 +392,10 @@ include('db.php');
  bill_room_no, bill_admit_date, bill_disc_date, bill_room_ch, bill_ot_ch, bill_surgeon_ch, bill_assistant_ch,
  bill_anesthetic_ch, bill_physician_ch, bill_dressing_ch, bill_xray_ch, bill_utility_ch,
  bill_nursing_ch, bill_lab_ch, bill_ecg_ch, bill_total_amount)  VALUES
- ('$reg_id','$user_name','$age','$gender','$occupation','$address','$room_no','$add_date','$dis_date','$room_charge','$ot','$surgeon'
- ,'$assis','$anses','$phys','$dressing','$xray','$gass_charge','$nurse','$lab','$ecg','$totl_amount')";
- //echo $query; die;
- if(mysqli_query($mysqli, $query)){
+ ('$reg_id','$user_name','$age','$gender','$occupation','$address','$room_no','$add_date','$dis_date','$room_charge',$null,$null
+ ,$null,$null,$null,$null,$null,$null,$null,$null,$null,'$totl_amount')";
+																//echo $query; die;
+ if(mysqli_query($mysqli,$query)){
 	
 	echo "<script>window.open('bill_details.php','_self')</script>";	
 		}

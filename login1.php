@@ -1,7 +1,94 @@
 <?php
-session_start();
+include ('db.php');	
+	session_start();
+//		$_SESSION['user'] = $user_name;  	
+		
+//echo $_SESSION['']
+	
+			
+//			header:("Location:admin_dashboard.php");
 
+
+	
+
+	 //ob_start();
+				
 ?>
+
+<?php
+//$run = mysqli_query($mysqli, $query);
+
+//		if(mysqli_fetch_row($run))
+			
+	
+	
+	
+
+		if(isset($_POST['submit'])){
+	  $user_name=$_POST['name'];
+	  $usercategory = $_POST['acc_type'];
+	  $user_email = $_POST['email'];
+	  $user_pass = $_POST['pass'];
+
+	   		$_SESSION['user']= $user_name;
+	 if($usercategory=='') {
+		 
+	 echo "<script>alert('Select any User type')</script>";
+	 }
+	
+	
+	 elseif($user_email=='') {
+		 
+	 echo "<script>alert('Enter your Email Address')</script>";
+	 }
+	 elseif ($user_pass=='')
+	 {
+	echo "<script>alert('Enter your Password')</script>";
+	}
+
+ $query ="SELECT * from registration where reg_type='$usercategory'AND reg_name='$user_name' AND reg_email = '$user_email' AND reg_pass = '$user_pass'";
+ 	
+
+	$run = mysqli_num_rows($query)==1;{
+
+		$_SESSION['username']=$username;
+}
+
+		
+			
+			
+			if($usercategory == 'admin'){
+				header("Location: admin_dashboard.php"); // This line triggers a redirect if the user_type is admin
+						} 
+			elseif ($usercategory == 'doctor'){
+				header("Location: doctor_dashboard.php"); // This line triggers for other user_types
+			}
+			 
+	elseif ($usercategory == 'accountant'){
+				header("Location: accountant_dashboard.php"); // This line triggers for other user_types
+			}
+	elseif ($usercategory == 'receptionist'){
+				header("Location: reception_dashboard.php"); // This line triggers for other user_types
+			}
+			
+				
+        		if(isset($_GET['logout'])){
+
+
+        			session_unregister('name');
+        		}
+
+
+				 else {
+        echo "<script>alert('Enter correct  Email Address and Password')</script>";
+    
+ }
+					
+
+}
+	
+?>
+
 
 
 <!DOCTYPE html>
@@ -68,9 +155,13 @@ session_start();
 			</select>
 		
 </div><br>
-            <div>
+
+			<div>
 				
-              <input type="text" name="email" class="form-control"  required placeholder="Email..."pattern="[a-zA-Z]{3,}[@][a-zA-Z]{4,}[.][a-zA-Z]{3,}" />
+              <input type="text" name="name" class="form-control"  required placeholder="Name..." />
+            </div>
+            <div>
+				  <input type="text" name="email" class="form-control"  required placeholder="Email..."pattern="[a-zA-Z]{3,}[@][a-zA-Z]{4,}[.][a-zA-Z]{3,}" />
             </div>
             <div>
               <input type="password" name="pass" class="form-control" required placeholder="Password..." pattern=".{3,}" title="Six or more characters" />
@@ -103,65 +194,5 @@ session_start();
       
     </div>
   </div>
-
-<?php
-	
-	
-	include ('db.php');	
-		if(isset($_POST['submit'])){
-	 
-	  $usercategory = $_POST['acc_type'];
-	  $user_email = $_POST['email'];
-	  $user_pass = $_POST['pass'];
-	   
-	 if($usercategory=='') {
-		 
-	 echo "<script>alert('Select any User type')</script>";
-	 }
-	
-	
-	 elseif($user_email=='') {
-		 
-	 echo "<script>alert('Enter your Email Address')</script>";
-	 }
-	 elseif ($user_pass=='')
-	 {
-	echo "<script>alert('Enter your Password')</script>";
-	}
-
- $query ="SELECT * from registration where reg_type='$usercategory' AND reg_email = '$user_email' AND reg_pass = '$user_pass'";
- 
-
-	$run = mysqli_query($mysqli, $query);
-
-		if(mysqli_fetch_row($run)){
-     	
-         $_SESSION['user_email'] = $user_email;  
-       
-       		 
-			if($usercategory == 'admin'){
-				header("Location: index.php"); // This line triggers a redirect if the user_type is admin
-						} 
-			elseif ($usercategory == 'doctor'){
-				header("Location: drform.php"); // This line triggers for other user_types
-			}
-			 
-	elseif ($usercategory == 'accountant'){
-				header("Location: drform.php"); // This line triggers for other user_types
-			}
-	elseif ($usercategory == 'receptionist'){
-				header("Location: drform.php"); // This line triggers for other user_types
-			}
-			
-				}
-				 else {
-        echo "<script>alert('Enter correct  Email Address and Password')</script>";
-    }
-					
-
-		}
-	
-?>
-
 </body>
 </html>

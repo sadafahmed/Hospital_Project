@@ -1,3 +1,9 @@
+<?php
+
+  include('session.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,8 +80,9 @@
               <img src="images/img.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+              <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->

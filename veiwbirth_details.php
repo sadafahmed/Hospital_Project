@@ -3,6 +3,7 @@
   include('session.php');
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>KC</title>
+  <title>Hospital name </title>
 
   <!-- Bootstrap core CSS -->
 
@@ -47,7 +48,44 @@
         <![endif]-->
 
 </head>
+<style>	
+			@media print {
+    .aside, .sidebar,.header[role="banner"],.copyright-info, .footer,.comments,.respond,.navbar nav_title ,
+	.pagination, .top_nav, .button, .left_col scroll-view, .col-md-3 left_col, .search, .container1, .input-group
+	,.panel-heading ,.to-hide,.nav_menu, #myDiv
+	{
+        display: none;
+    }
+	.nav navbar-nav navbar-right
+	{display: none;}
+.main_container, .content ,.main ,.table table-striped table-bordered table-hover {
+    width: 100%;
+    margin: 30px;
+    padding: 0px;
+}
+* {
+    color: #000;    
+    background-color: #fff;
+    @include box-shadow(none);
+    @include text-shadow(none);
+}
+	a::after {
+    content: "( "attr(href)" )"
+}	
 
+#dataTable{
+	margin: 20px;
+	width: 1000px;
+	font-size: 25px;
+	padding: 15px;
+	
+
+	}
+	}   
+
+
+</style>
+      
 
 <body class="nav-md">
 
@@ -81,7 +119,7 @@
           <br />
 
           <!-- sidebar menu -->
-        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
               <h3>General</h3>
@@ -89,7 +127,7 @@
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                  
-				      <li><a href="admin_dashboard.php">Admin</a>
+				     <li><a href="admin_dashboard.php">Admin</a>
                     </li>
 					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
@@ -110,7 +148,7 @@
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-	              </ul>
+					 </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -163,7 +201,7 @@
 					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
-
+             
             </div>
 
           </div>
@@ -221,291 +259,159 @@
       <!-- /top navigation -->
 
       <!-- page content -->
-	  <style>	
-			@media print {
-    .aside, .sidebar,.header[role="banner"],.copyright-info, .footer,.comments,.respond,.navbar nav_title ,
-	.pagination, .top_nav, .button, .left_col scroll-view, .col-md-3 left_col, .search, .container1, .input-group
-	,.panel-heading ,.to-hide,.nav_menu, #myDiv
-	{
-        display: none;
-    }
-	.nav navbar-nav navbar-right
-	{display: none;}
-.main_container, .content ,.main ,.table table-striped table-bordered table-hover {
-    width: 100%;
-    margin: 30px;
-    padding: 0px;
-}
-* {
-    color: #000;    
-    background-color: #fff;
-    @include box-shadow(none);
-    @include text-shadow(none);
-}
-	a::after {
-    content: "( "attr(href)" )"
-}	
-
-#dataTable{
-	margin: 20px;
-	width: 1000px;
-	font-size: 25px;
-	padding: 15px;
-	
-
-	}
-	}   
-
-
-</style>
       <div class="right_col" role="main">
         <div class="">
 
           
 		  <div>
-		
-  
-  
-<div class="container">
-<?php
+		  
+ <div class="container">
+  <?php
 	include ('header.php');
-?>  
+?>
 
-   
-
-
-<!-- Export a Table to Excel - START -->
-<link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
-
-<div class="container">
-    
-
-   
-			<div id="myDiv">
-			<ul class="nav nav-tabs">
-   <li><a href="birth_form.php"><i class="glyphicon glyphicon-plus"></i> birth form</a></li>
- <li  class="active"><a href="birth_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> birth details</a></li>
-  <li><a href="veiwbirth_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Veiw full details</a></li>
-<div style='float: right;'>
+ <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
+ <div id="myDiv">
+ <ul class="nav nav-tabs">
+ 
+ <li><a href="birth_form.php"><i class="glyphicon glyphicon-plus"></i> Birth Form</a></li>
+ <li><a href="birth_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Birth details</a></li>
+  <li class="active" ><a href="veiwbirth_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i>Veiw full detail</a></li>
   
+  <div style='float: right;'>
  <li> <button onclick="myFunction()" type="button" class="btn btn-info btn-sm">
           <span class="glyphicon glyphicon-print"> Print</span> 
         <script>
 function myFunction() {
-    window.print("");
-	
+    window.print();
+	 
 	
 }
 </script>
 </li>
-		</div>
-		 
+</div>
+	  
   </ul>
-  
-  
-  
-    </div>
-             
-			 
-		
-       <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                           			<form class="form-inline">	
-  	
+  </div>
+ <div class="row">
+		 
+  <div class="col-lg-12">
+  		  <style>
+		  
+  form
+  {
+	  padding: 30px;
+  }  
 
-<input type="text" id="searchTerm" class="form-control" onkeyup="doSearch()" size="30" placeholder="Search...."/>
-<table id="example1" class="table table-striped table-bordered">
-	<script>
-		$(function(){
-			$('#example').DataTable({
-				"order":[],
-				"iDisplayLength":100
-			columnDefs':[{
-				'searchable': false,
-				'targets':[1,2,3,4,5,6,7,8]
-			}]
-			});
-			
-			
-		});
-	</script>
-   </div>
-   
-<table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">
-     <thead>
-         <tr>
-		 <th>Date of reg</th>
-		  <th>Date of birth</th>
-            <th>Name of child</th>
-            <th>Father Name</th>
-            <th>Name of reporter</th>
-			<th>Details</th>
-			
-			
-         </tr>
-     </thead>
-     <tbody>     
-        <?php
 
-$query= "select *from birth order by 1 desc LIMIT 10";
-
-include 'db.php';
-
-$run= mysqli_query($mysqli,$query);
-
-while($row = mysqli_fetch_array($run)){
+input[type=text]{
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #000000;
+width: 300px;
+	text-transform: capitalize;
+}
+input[type=time]{
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #000000;
 	
-	$date_of_reg = $row[2];
-	$dob = $row[6];
-	$name = $row[3];
-	$fname = $row[4];
-	$reporter = $row[10];
-	 
-	
-
-?>
-<style>
-a{text-decoration: none;}
-</style>
-<tr>
-<td><?php echo $date_of_reg; ?></td>
-<td><?php echo $dob; ?></td>
-<td><?php echo $name; ?></td>
-<td><?php echo $fname ?></td>
-<td><?php echo $reporter ?></td>
-<td><a href="veiw birth_details.php">details</a></td>
-</tr>
-<?php } 
-
- ?>
-
-       
-     </tbody>
-</table>
-
-
-<script>
-function doSearch() {
-    var searchText = document.getElementById('searchTerm').value;
-    var targetTable = document.getElementById('dataTable');
-    var targetTableColCount;
-            
-    //Loop through table rows
-    for (var rowIndex = 0; rowIndex < targetTable.rows.length; rowIndex++) {
-        var rowData = '';
-
-        //Get column count from header row
-        if (rowIndex == 0) {
-           targetTableColCount = targetTable.rows.item(rowIndex).cells.length;
-           continue; //do not execute further code for header row.
-        }
-                
-        //Process data rows. (rowIndex >= 1)
-        for (var colIndex = 0; colIndex < targetTableColCount; colIndex++) {
-            rowData += targetTable.rows.item(rowIndex).cells.item(colIndex).textContent;
-        }
-
-        //If search term is not found in row data
-        //then hide the row, else show
-        if (rowData.indexOf(searchText) == -1)
-            targetTable.rows.item(rowIndex).style.display = 'none';
-        else
-            targetTable.rows.item(rowIndex).style.display = 'table-row';
-    }
 }
 
-
-
-</script>
-<script>
-
-<!-- you need to include the shieldui css and js assets in order for the components to work -->
-<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/jszip.min.js"></script>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        $("#exportButton").click(function () {
-            // parse the HTML table element having an id=exportTable
-            var dataSource = shield.DataSource.create({
-                data: "#exportTable",
-                schema: {
-                    type: "table",
-                    fields: {
-                        Name: { type: String },
-                        Age: { type: Number },
-                        Email: { type: String }
-                    }
-                }
-            });
-
-            // when parsing is done, export the data to Excel
-            dataSource.read().then(function (data) {
-                new shield.exp.OOXMLWorkbook({
-                    author: "PrepBootstrap",
-                    worksheets: [
-                        {
-                            name: "PrepBootstrap Table",
-                            rows: [
-                                {
-                                    cells: [
-                                        {
-                                            style: {
-                                                bold: true
-                                            },
-                                            type: String,
-                                            value: "Name"
-                                        },
-                                        {
-                                            style: {
-                                                bold: true
-                                            },
-                                            type: String,
-                                            value: "Age"
-                                        },
-                                        {
-                                            style: {
-                                                bold: true
-                                            },
-                                            type: String,
-                                            value: "Email"
-                                        }
-                                    ]
-                                }
-                            ].concat($.map(data, function(item) {
-                                return {
-                                    cells: [
-                                        { type: String, value: item.Name },
-                                        { type: Number, value: item.Age },
-                                        { type: String, value: item.Email }
-                                    ]
-                                };
-                            }))
-                        }
-                    ]
-                }).saveAs({
-                    fileName: "PrepBootstrapExcel"
-                });
-            });
-        });
-    });
-</script>
-<style>
-    #exportButton {
-        border-radius: 0;
-    }
 </style>
+		<?php
+		include 'db.php';
 
-<!-- Export a Table to Excel - END -->
 
-</div>
+					$query= "select * from birth order by b_id desc LIMIT 1";
+//echo '<pre>'; print_r($_POST); die;
+//echo $query; die;
+						$run= mysqli_query($mysqli, $query);
 
-          <div class="clearfix"></div>
+							while($row = mysqli_fetch_array($run)){
+	
+	?>
+      
+<div class="form-inline">
+
+		 <form>
+            <div>
+           <label> S.no  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		   <input type="text" readonly name="s_no" value="<?php echo $row[1];?>"  /><br><br>
+            </div>
+			 <div>
+           <label>Date of reg  </label>
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		   <input type="text" name="date of reg" value="<?php echo $row[2];?>" /><br><br>
+            </div>
+            <div>
+           <label> Name of child  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		   <input type="text" name="name" value="<?php echo $row[3];?>" /><br><br>
+            </div>
+			<div>
+           <label> Father name  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   <input type="text" name="fname" value="<?php echo $row[4];?>" /><br><br>
+            </div>
+			<div>
+           <label> Gender  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="gender" value="<?php echo $row[5];?>" /><br><br>
+            </div>
+				
+		  	<div>
+          <label> Date of birth </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp; <input type="text" name="dob" value="<?php echo $row[6];?>"/><br><BR>
+            </div>
+			 <div>
+            <label>Adress of father</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" name="adress" value="<?php echo $row[7];?>"/><br><br>
+            </div>
+		
+			 <div>
+             <label>Occuption of father</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="text" name="occuption" value="<?php echo $row[8];?>" /><br>
+            </div><br>
+			<div>
+             <label>Religion of father</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="text" name="religion" value="<?php echo $row[9];?>" /><br>
+            </div><br>
+			<div>
+             <label>Name of reporter</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="text" name="reporter" value="<?php echo $row[10];?>"/><br>
+            </div><br>
+			<div>
+             <label>Name of doctor/Dai/Mid-wife<br> who conducted delivery</label>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="reporter" value="<?php echo $row[11];?>"/><br>
+            </div><br>
+			<div>
+             <label>Remarks</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="text" name="remarks"value="<?php echo $row[12];?>" /><br>
+            </div>
+				<br>
+		  
+			 <?php } ?>
+			</form>
+			
+		 </div> 
+		
+
+	  
+          <div class="clearfix"> </div>
                   <div class="clearfix"></div>
                 </div>
+			
                 <div class="x_content">
                   <br />
                   <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
@@ -531,22 +437,13 @@ function doSearch() {
               </div>
             
           </div>
+		  
+</div>
 
- <center>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="dform.php">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
-</center>
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
+<footer>
 		<style>
 		.copyright-info
 		{
@@ -562,7 +459,12 @@ function doSearch() {
         </footer>
         <!-- /footer content -->
 
-     
+      </div>
+
+    </div>
+  
+</div>
+</div>
   <div id="custom_notifications" class="custom-notifications dsp_none">
     <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
     </ul>

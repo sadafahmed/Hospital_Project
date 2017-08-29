@@ -1,3 +1,8 @@
+
+<?php
+include('session.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,11 +68,12 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+               <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -157,15 +163,6 @@
 					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
-              <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    
-                    <li><a href="profile.html"></a>
-                    </li>
-                  </ul>
-                </li>
-                </ul>
             </div>
 
           </div>
@@ -254,9 +251,7 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+	  
   </ul>
   
  <div class="row">
@@ -353,17 +348,20 @@ include('db.php');
 	  
 	  	
  
-	 if($user_name=='' or $user_gardian_name=='' or $user_age=='' or $user_gender=='' or $user_nic=='' or $user_address=="" or $user_admitted=="" or $user_admit_date=="" or $user_disease=="" or $user_expired==""or $user_expired_at==""or $user_reg==""){
+	 if($user_name=='' or $user_gardian_name=='' or $user_age=='' or $user_gender=='' 
+	 or $user_nic=='' or $user_address=='' or $user_admitted=='' or $user_admit_date=='' 
+	 or $user_disease=='' or $user_expired==''or $user_expired_at==''or $user_reg==''){
 	 
 	 echo "<script>alert('Some Fields are empty')</script>";
 	 exit();
  }
 
  $query ="insert into death(name, gardian_name, age, gender, nic, address, admitted, admit_date, disease, expired, expired_at, reg) VALUES
- ('$user_name','$user_gardian_name','$user_age','$user_gender','$user_nic','$user_address','$user_admitted','$user_admit_date','$user_disease','$user_expired','$user_expired_at','$user_reg')";
- 
- if(mysql_query($query)){
-	
+ ('$user_name','$user_gardian_name','$user_age','$user_gender','$user_nic','$user_address',
+ '$user_admitted','$user_admit_date','$user_disease','$user_expired','$user_expired_at','$user_reg')";
+ //echo $query; die;
+ if(mysqli_query($mysqli,$query)){
+	$_SESSION['user'] = $user_name;  
 	echo "<script>window.open('death_details.php','_self')</script>";	
 		}
 		else

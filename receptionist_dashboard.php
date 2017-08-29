@@ -1,3 +1,10 @@
+<?php
+	
+  include'session.php';
+
+	//session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +35,9 @@
   <link href="css/select/select2.min.css" rel="stylesheet">
   <!-- switchery -->
   <link rel="stylesheet" href="css/switchery/switchery.min.css" />
+  <link href="css/calander/fullcalendar.css" rel="stylesheet">
+      <link href="css/calander/fullcalendarprint..css" rel="stylesheet" media="print">
+      
 
   <script src="js/jquery.min.js"></script>
 
@@ -66,8 +76,9 @@
               <img src="images/img.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+              <?php
+			  echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+			  ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -78,7 +89,7 @@
          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
-              <h3>General</h3>
+              <h3>Reception Dashboard</h3>
               <ul class="nav side-menu">
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -154,7 +165,7 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_detail.php">Death Report</a></li>
+					<li><a href="death_details.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -281,9 +292,9 @@ include 'db.php';
 
 $query= "select *from noticeboard order by 1 desc LIMIT 1";
 
-$run= mysql_query($query);
+$run= mysqli_query($mysqli,$query);
 
-while($row = mysql_fetch_array($run)){
+while($row = mysqli_fetch_array($run)){
 	$id = $row[0];
 	$title = $row[1];
 	$date = $row[3];
@@ -322,7 +333,7 @@ while($row = mysql_fetch_array($run)){
 			</div>
 			</div>
                 
-				  <div class="col-md-8 col-sm-8 col-xs-11"  style="float:right; margin-top: -440px;">
+				  <div class="col-md-8 col-sm-8 col-xs-11"  style="float:right; margin-top: -500px;">
                     <div>
                      <div class="col-md-8 col-sm-8 col-xs-11" style="float:right;">
             <div class="x_panel">
@@ -341,9 +352,9 @@ include 'db.php';
 
 $query= "select *from noticeboard order by 1 desc LIMIT 2";
 
-$run= mysql_query($query);
+$run= mysqli_query($mysqli,$query);
 
-while($row = mysql_fetch_array($run)){
+while($row = mysqli_fetch_array($run)){
 	$id = $row[0];
 	$title = $row[1];
 	$desc = $row[2];

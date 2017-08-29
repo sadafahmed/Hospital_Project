@@ -1,3 +1,9 @@
+<?php
+
+  include('session.php');
+
+?>
+
 <html>
 <head>
 <title>Posts</title>

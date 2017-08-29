@@ -1,3 +1,9 @@
+<?php
+
+  include('session.php');
+
+?>
+
 <!DOCTYPE html>
 <?php
 	include ('db.php');
@@ -102,7 +108,7 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
@@ -196,15 +202,7 @@
 					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
-              <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    
-                    <li><a href="profile.html"></a>
-                    </li>
-                  </ul>
-                </li>
-                </ul>
+              
             </div>
 
           </div>
@@ -274,8 +272,9 @@
 ?>
 
  <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
- 
+ <div id="myDiv">
  <ul class="nav nav-tabs">
+ 
  <li  class="active"><a href="veiwdr_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Veiw detail</a></li>
   <li><a href="dr_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Docter detail</a></li>
   <li><a href="dr_form.php"><i class="glyphicon glyphicon-plus"></i> Add docter</a></li>
@@ -291,11 +290,9 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+	 
   </ul>
-  
+  </div>
  <div class="row">
 		 
   <div class="col-lg-12">
@@ -327,46 +324,67 @@ p{
 }
 
 </style>
+		<?php
 
+				include 'db.php';
+
+					$query= "select *from doctor order by dr_id desc LIMIT 1";
+
+						$run= mysqli_query($mysqli, $query);
+
+							while($row = mysqli_fetch_array($run)){
+					 //echo '<pre>'; print_r($_POST); die;													 
+			?>
+					
+
+		
       
 <div class="form-inline">
 
 		 <form  method="post" action="death_form.php">
-        <p>Doctor Details</p> 
+        <p align="center">Doctor Details</p> 
             <div>
-           <label> Name  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="name"  /><br><br>
+           <label> Name  </label>
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		   <input type="text" name="name" readonly value="<?php echo $row[1]; ?>"  /><br><br>
             </div> 
 			<div>
-          <label> Age  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="age" /><br><BR>
+          <label> Age  </label>
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		  <input type="text" name="age"  readonly value="<?php echo $row[2]; ?>"/><br><BR>
             </div>
 			<div>
-           <label> Gender  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="gender"  /><br><br>
+           <label> Gender  </label>
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   <input type="text" name="gender" readonly value="<?php echo $row[3]; ?>"  /><br><br>
             </div>
 			 <div>
-            <label> Qualification </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="qualification" /><br><br>
+            <label> Qualification </label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" name="qualification" readonly value="<?php echo $row[4]; ?>"/><br><br>
             </div>
 		  <div>
-             <label>Specalist</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="Specalist" /><br>
+             <label>Specalist</label>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="text" name="Specalist" readonly value="<?php echo $row[5]; ?>" /><br>
             </div>
 			<br>
 		 <div>
-             <label>Department</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="department" /><br>
+            
+			<br>
+		 
+		 <div>
+             <label>Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="text" name="adress"  readonly value="<?php echo $row[9]; ?>"/><br>
             </div>
 			<br>
 		 <div>
-             <label>Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" /><br>
-            </div>
-			<br>
-		 <div>
-             <label>Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="password" /><br>
-            </div>
-			<br>
-		 <div>
-             <label>Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="adress" /><br>
-            </div>
-			<br>
-		 <div>
-             <label>Contact-no</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="contact-no" /><br>
+             <label>Contact-no</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="text" name="contact-no" readonly value="<?php echo $row[10]; ?>" /><br>
             </div>
 			<br>
 		
@@ -374,7 +392,7 @@ p{
 			
 		 </div> 
 		
-
+							<?php } ?>
 	  
           <div class="clearfix"> </div>
                   <div class="clearfix"></div>

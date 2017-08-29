@@ -1,3 +1,9 @@
+<?php
+
+  include('session.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,8 +72,9 @@
               <img src="images/img.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+               <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -154,7 +161,7 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_detail.php">Death Report</a></li>
+					<li><a href="death_details.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -254,9 +261,7 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+	  
   </ul>
   
  <div class="row">
@@ -356,16 +361,19 @@ include('db.php');
 	  
 	  	
  
-	 if($user_s_no=='' or $user_date_of_reg=='' or $user_name=='' or $user_fname=='' or $user_gender=='' or $user_dob=="" or $user_address=="" or $user_occuption=="" or $user_religion=="" or $user_reporter==""or $user_conducted==""or $user_remarks==""){
+	 if($user_s_no=='' or $user_date_of_reg=='' or $user_name=='' or $user_fname==''
+	 or $user_gender=='' or $user_dob=='' or $user_address=='' or $user_occuption=='' 
+	 or $user_religion=='' or $user_reporter==''or $user_conducted==''or $user_remarks==''){
 	 
 	 echo "<script>alert('Some Fields are empty')</script>";
 	 exit();
  }
 
  $query ="insert into birth(s_no, date_of_reg, name, fname, gender, dob, address, occuption, religion, reporter, conducted, remarks) VALUES
- ('$user_s_no','$user_date_of_reg','$user_name','$user_fname','$user_gender','$user_dob','$user_address','$user_occuption','$user_religion','$user_reporter','$user_conducted','$user_remarks')";
+ ('$user_s_no','$user_date_of_reg','$user_name','$user_fname','$user_gender','$user_dob',
+ '$user_address','$user_occuption','$user_religion','$user_reporter','$user_conducted','$user_remarks')";
  
- if(mysql_query($query)){
+ if(mysqli_query($mysqli,$query)){
 	
 	echo "<script>window.open('birth_detail.php','_self')</script>";	
 		}
