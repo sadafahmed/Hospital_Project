@@ -1,3 +1,9 @@
+<?php
+
+	include('session.php');
+
+?>
+
 <div class="mainbody">
 <center>
 <?php

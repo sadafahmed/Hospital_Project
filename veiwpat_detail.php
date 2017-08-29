@@ -1,7 +1,10 @@
-<!DOCTYPE html>
 <?php
-	include ('db.php');
+    include ('db.php');
+  include('session.php');
+
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -45,7 +48,44 @@
         <![endif]-->
 
 </head>
+<style> 
+      @media print {
+    .aside, .sidebar,.header[role="banner"],.copyright-info, .footer,.comments,.respond,.navbar nav_title ,
+  .pagination, .top_nav, .button, .left_col scroll-view, .col-md-3 left_col, .search, .container1, .input-group
+  ,.panel-heading ,.to-hide,.nav_menu, #myDiv
+  {
+        display: none;
+    }
+  .nav navbar-nav navbar-right
+  {display: none;}
+.main_container, .content ,.main ,.table table-striped table-bordered table-hover {
+    width: 100%;
+    margin: 30px;
+    padding: 0px;
+}
+* {
+    color: #000;    
+    background-color: #fff;
+    @include box-shadow(none);
+    @include text-shadow(none);
+}
+  a::after {
+    content: "( "attr(href)" )"
+} 
 
+#dataTable{
+  margin: 20px;
+  width: 1000px;
+  font-size: 25px;
+  padding: 15px;
+  
+
+  }
+  }   
+
+
+</style>
+      
 
 <body class="nav-md">
 
@@ -66,11 +106,12 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+              <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -159,16 +200,8 @@
                     <li><a href="birth_detail.php">Birth Report</a></li>
 					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
-               </li>
-              <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    
-                    <li><a href="profile.html"></a>
-                    </li>
-                  </ul>
-                </li>
-                </ul>
+                 </li>
+              
             </div>
 
           </div>
@@ -237,7 +270,7 @@
 	include ('header.php');
 ?> 
  <link rel="stylesheet" type="text/css" href="/Content/font-awesome/css/font-awesome.min.css" />
- 
+ <div id="myDiv">
  <ul class="nav nav-tabs">
  <li  class="active"><a href="veiwpat_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Veiw detail</a></li>
  <li><a href="pat_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Patient Detail</a></li>
@@ -254,10 +287,11 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+	  
   </ul>
+  </button>
+  
+  </div>
   
  <div class="row">
 		 
@@ -290,56 +324,71 @@ p{
 }
 
 </style>
+<?php
 
+        include 'db.php';
+
+          $query= "select *from patient order by pat_id desc LIMIT 1";
+
+            $run= mysqli_query($mysqli, $query);
+
+              while($row = mysqli_fetch_array($run)){
+           //echo '<pre>'; print_r($_POST); die;                           
+      ?>
       
 <div class="form-inline">
 
 		 <form  method="post" action="death_form.php">
-        <p>Patient Details</p> 
+        <p align="center"><b>Patient Details</b></p> 
             <div>
-           <label> Registration no  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="Registration no"  /><br><br>
+           <label> Registration no  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <input type="text" name="Registration no" readonly value="<?php echo $row[2]; ?>" /><br><br>
             </div> 
 			<div>
-          <label> Name  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="name" /><br><BR>
+          <label> Name  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="name" readonly value="<?php echo $row[3]; ?>" /><br><BR>
             </div>
 			<div>
-            <label> NIC </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="nic" /><br><br>
+            <label> NIC </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="nic" readonly value="<?php echo $row[4]; ?>"/><br><br>
             </div>
 		  <div>
-             <label> disease </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="diease" /><br>
+             <label> disease </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="diease" readonly value="<?php echo $row[5]; ?>" /><br>
             </div>
 			<br>
 			<div>
-           <label> Gender  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="gender"  /><br><br>
+           <label> Gender  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="gender" readonly value="<?php echo $row[6]; ?>" /><br><br>
             </div>
 			 		 <div>
-             <label> Age </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="age" /><br>
+             <label> Age </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="age" readonly value="<?php echo $row[7]; ?>" /><br>
             </div>
 			<br>
 		 <div>
-             <label> Date Of Birth </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="DOB" /><br>
+             <label> Date Of Birth </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" name="DOB"  readonly value="<?php echo $row[8]; ?>"/><br>
             </div>
 			<br>
 		 <div>
-             <label> Dr Name </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dr name" /><br>
+             <label> Dr Name </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dr name" readonly value="<?php echo $row[1]; ?>" /><br>
             </div>
 			<br>
 		 <div>
-             <label> Blood group </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="blood group" /><br>
+             <label> Blood group </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" name="blood group" readonly value="<?php echo $row[9]; ?>"/><br>
             </div>
 			<br>
 		 <div>
-             <label> Weight </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="weight" /><br>
+             <label> Weight </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="weight" readonly value="<?php echo $row[12]; ?>"/><br>
             </div>
 			<br>
 		 <div>
-             <label>Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="adress" /><br>
+             <label>Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="adress" readonly value="<?php echo $row[11]; ?>" /><br>
             </div>
 			<br>
 		 <div>
-             <label>Contact-no</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="contact-no" /><br>
+             <label>Contact-no</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="text" name="contact-no" readonly value="<?php echo $row[10]; ?>" /><br>
             </div>
 			<br>
+      <?php }?>
 			</form>
 			
 		 </div> 
@@ -377,7 +426,7 @@ p{
           </div>
 		  
 </div>
-
+</div>
         <!-- /page content -->
 
         <!-- footer content -->
@@ -608,6 +657,7 @@ p{
     });
   </script>
   <!-- /editor -->
+  </div>
 </body>
 
 </html>

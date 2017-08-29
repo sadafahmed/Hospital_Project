@@ -1,3 +1,9 @@
+<?php
+
+  include('session.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,7 +114,7 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
@@ -199,18 +205,10 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_detail.php">Death Report</a></li>
+					<li><a href="death_details.php">Death Report</a></li>
                     </ul>
                </li>
-              <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    
-                    <li><a href="profile.html"></a>
-                    </li>
-                  </ul>
-                </li>
-                </ul>
+              
             </div>
 
           </div>
@@ -309,9 +307,7 @@ function myFunction() {
 </script>
 </li>
 		</div>
-		  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+		  
   </ul>
   
   
@@ -328,21 +324,21 @@ function myFunction() {
   	
 
 <input type="text" id="searchTerm" class="form-control" onkeyup="doSearch()" size="30" placeholder="Search...."/>
-
-<div style='float: right;'>
-  <div class="input-group" style="font-size: 15px";>
-    <label for="show entiries">Show:</label>
-     <select>
-  <option value="">10</option>
-  <option value="">20</option>
-  <option value="">50</option>
-  <option value="">All</option>
-</select> 
-    <label for="show entiries">Entries</label>
-       </small>
-	   
-  </div>
-   </div> <br><br>
+<table id="example1" class="table table-striped table-bordered">
+	<script>
+		$(function(){
+			$('#example').DataTable({
+				"order":[],
+				"iDisplayLength":100
+			columnDefs':[{
+				'searchable': false,
+				'targets':[1,2,3,4,5,6,7,8]
+			}]
+			});
+			
+			
+		});
+	</script>
    </div>
    
 <table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">

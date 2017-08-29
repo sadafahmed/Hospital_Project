@@ -1,3 +1,9 @@
+<?php
+
+  include('session.php');
+
+?>
+
 <!DOCTYPE html>
 <?php
 	include ('db.php');
@@ -66,11 +72,12 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+               <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -157,18 +164,9 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_detail.php">Death Report</a></li>
+					<li><a href="death_details.php">Death Report</a></li>
                     </ul>
                </li>
-              <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    
-                    <li><a href="profile.html"></a>
-                    </li>
-                  </ul>
-                </li>
-                </ul>
             </div>
 
           </div>
@@ -256,9 +254,7 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+	  
   </ul>
   
  <div class="row">
@@ -286,21 +282,21 @@ h2
 		 <form  method="post" action="dr_form.php">
             
             <div>
-           <input type="text" class="form-control" name="name" placeholder="Name..." /><br>
+           <input type="text" class="form-control" name="name" placeholder="Name..." style="text-transform: capitalize";/><br>
             </div>
 			<div>
            <input type="text" class="form-control" name="age" placeholder="Age..."/><br>
             </div>
 					<div>
            <label> Gender </label>
-		  <input type="radio" name="gender" value="male"> Male
+		  <input type="radio" name="gender" value="male" checked> Male
 		  <input type="radio" name="gender" value="female"> Female
 		  </div><br>
 		   <div>
-           <input type="text" class="form-control" name="qualif" placeholder="Qualification..." /><br>
+           <input type="text" class="form-control" name="qualif" placeholder="Qualification..." style="text-transform: capitalize";/><br>
             </div>
 			<div>
-           <input type="text" class="form-control" name="special" placeholder="Specalist..." /><br>
+           <input type="text" class="form-control" name="special" placeholder="Specalist..." style="text-transform: capitalize";/><br>
             </div>
 		<div>
               <select name="dep_id" value="" class="form-control"><br>
@@ -316,13 +312,13 @@ h2
               </select>
             </div><br>
 			<div>
-           <input type="email" class="form-control" name="email" placeholder="Email..."  /><br>
+           <input type="email" class="form-control" name="email" placeholder="Email..." /><br>
             </div>
 		  <div>
           <input type="password" class="form-control" name="pass" placeholder="Password..."  /><br>
             </div>
 		    <div>
-              <input type="text" class="form-control" name="add" placeholder="Address..."  /><br>
+              <input type="text" class="form-control" name="add" placeholder="Address..."  style="text-transform: capitalize";/><br>
             </div>
             <div>
           <input type="text" class="form-control" name="contact" placeholder="Contact-no..."  /><br>
@@ -333,7 +329,7 @@ h2
 			
 			</form>
 			
-		<?php
+			<?php
 	
 	
 
@@ -353,19 +349,21 @@ h2
 			 $user_addd= mysqli_real_escape_string($mysqli, $_POST['add']);																	  		
 			 $user_contact= mysqli_real_escape_string($mysqli, $_POST['contact']);																	  		
 																						  
-	//		echo '<pre>'; print_r($_POST); die;
+	//echo '<pre>'; print_r($_POST); die;
 																					
  
-	 if($user_name=='' or $user_age=='' or $user_gender=='' or $user_qualiff=='' or $user_speciall=="" or $user_email=="" or $user_passs=="" or $user_addd=="" or $user_contact==""){
+	 if($user_name=='' or $user_age=='' or $user_gender=='' or $user_qualiff=='' or $user_speciall=='' or $user_email=='' or 
+	 $user_passs=='' or $user_addd=='' or $user_contact==''){
 
-	 echo "<script>alert('Some Fields are empty')</script>";}
+	 echo "<script>alert('Some Fields are empty')</script>";
 	 exit();
-
+	 }
  
 
  $query ="insert into doctor(dr_name, dr_age, dr_gender, dr_qualification, dr_specialist, dept_id , dr_email, dr_pass, dr_address, dr_contact_no) VALUES
  ('$user_name','$user_age','$user_gender','$user_qualiff','$user_speciall','$user_dept','$user_email','$user_passs','$user_addd','$user_contact')";
- 	//echo $query; die;
+											
+											//echo $query; die;
  if(mysqli_query($mysqli, $query)){
 	
 	echo "<script>window.open('dr_details.php','_self')</script>";	
@@ -378,6 +376,8 @@ h2
 	}
 
 ?>	
+		
+
 		
 </div>
 

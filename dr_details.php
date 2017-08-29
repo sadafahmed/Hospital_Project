@@ -1,3 +1,9 @@
+<?php
+
+  include('session.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,11 +114,12 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+               <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -120,14 +127,15 @@
           <br />
 
           <!-- sidebar menu -->
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
                 <li><a><i class="glyphicon glyphicon-dashboard"></i> &nbsp;&nbsp;&nbsp; Dashboard<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                  <li><a href="admin_dashboard.php">Admin</a>
+                 
+				     <li><a href="admin_dashboard.php">Admin</a>
                     </li>
 					<li><a href="doctor_dashboard.php">Doctor</a>
                     </li>
@@ -144,12 +152,11 @@
                 	 <li><a href="Shedule_details.php">Doctor Shedule</a></li>
                   </ul>
                 </li>
-               <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-user-md"></i> &nbsp; Doctor <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="dr_form.php">Add Doctor </a></li>
 					<li><a href="dr_details.php">Veiw Doctor</a></li>
-					 
-                  </ul>
+					 </ul>
                 </li>
 				<li><a><i class="fa fa-user-md"></i> &nbsp; Doctor Department<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -199,21 +206,13 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_detail.php">Death Report</a></li>
+					<li><a href="death_details.php">Death Report</a></li>
                     </ul>
                </li>
-              <ul class="nav side-menu">
-                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    
-                    <li><a href="profile.html"></a>
-                    </li>
-                  </ul>
-                </li>
-                </ul>
             </div>
 
           </div>
+        
           <!-- /sidebar menu -->
 
           
@@ -282,7 +281,6 @@
 	include ('header.php');
 ?>  
 
-   
 
 
 <!-- Export a Table to Excel - START -->
@@ -294,7 +292,6 @@
    
 			<div id="myDiv">
 			<ul class="nav nav-tabs">
-			
 			<li><a href="veiwdr_detail.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Veiw detail</a></li>
   <li class="active"><a href="dr_details.php"><i class="glyphicon glyphicon-menu-hamburger"></i> Doctor Detail</a></li>
   <li><a href="dr_form.php"><i class="glyphicon glyphicon-plus"></i> Add Doctor</a></li>
@@ -311,9 +308,7 @@ function myFunction() {
 </script>
 </li>
 		</div>
-		  <div style='float: right;'>
-		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
-</div>
+		  
   </ul>
   
   
@@ -330,21 +325,21 @@ function myFunction() {
   	
 
 <input type="text" id="searchTerm" class="form-control" onkeyup="doSearch()" size="30" placeholder="Search...."/>
-
-<div style='float: right;'>
-  <div class="input-group" style="font-size: 15px";>
-    <label for="show entiries">Show:</label>
-     <select>
-  <option value="">10</option>
-  <option value="">20</option>
-  <option value="">50</option>
-  <option value="">All</option>
-</select> 
-    <label for="show entiries">Entries</label>
-       </small>
-	   
-  </div>
-   </div> <br><br>
+<table id="example1" class="table table-striped table-bordered">
+	<script>
+		$(function(){
+			$('#example').DataTable({
+				"order":[],
+				"iDisplayLength":100
+			columnDefs':[{
+				'searchable': false,
+				'targets':[1,2,3,4,5,6,7,8]
+			}]
+			});
+			
+			
+		});
+	</script>
    </div>
    
 <table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">
@@ -361,7 +356,7 @@ function myFunction() {
 
 include 'db.php';
 
-$query= "select *from doctor order by 1 Asc LIMIT 10";
+$query= "select *from doctor order by 1 desc LIMIT 10";
 
 $run= mysqli_query($mysqli, $query);
 
@@ -383,6 +378,7 @@ a{text-decoration: none;}
 <td><?php echo $qaul; ?></td>
 <td><?php echo $spcial; ?></td>
 <td><?php echo $contNo; ?></td>
+<td><a href="veiwdr_detail.php?id=".$row['dr_id']?.>Read More</a></td>
 </tr>
 <?php } 
 
@@ -552,8 +548,8 @@ function doSearch() {
 </center>
         <!-- /page content -->
 
-        <!-- footer content -->
-        <footer>
+         <!-- footer content -->
+       <footer>
 		<style>
 		.copyright-info
 		{
