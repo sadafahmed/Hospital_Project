@@ -13,7 +13,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>KC </title>
+  <title>Hospital name </title>
 
   <!-- Bootstrap core CSS -->
 
@@ -206,10 +206,19 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_details.php">Death Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
-              </div>
+              <ul class="nav side-menu">
+                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    
+                    <li><a href="profile.html"></a>
+                    </li>
+                  </ul>
+                </li>
+                </ul>
+            </div>
 
           </div>
           <!-- /sidebar menu -->
@@ -305,7 +314,9 @@ function myFunction() {
 </script>
 </li>
 		</div>
-		 
+		  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
   
   

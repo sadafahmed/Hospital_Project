@@ -13,7 +13,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>KC</title>
+  <title>Hospital name </title>
 
   <!-- Bootstrap core CSS -->
 
@@ -163,7 +163,15 @@
 					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
-
+              <ul class="nav side-menu">
+                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    
+                    <li><a href="profile.html"></a>
+                    </li>
+                  </ul>
+                </li>
+                </ul>
             </div>
 
           </div>
@@ -299,7 +307,9 @@ function myFunction() {
 </script>
 </li>
 		</div>
-		 
+		  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
   
   
@@ -316,21 +326,21 @@ function myFunction() {
   	
 
 <input type="text" id="searchTerm" class="form-control" onkeyup="doSearch()" size="30" placeholder="Search...."/>
-<table id="example1" class="table table-striped table-bordered">
-	<script>
-		$(function(){
-			$('#example').DataTable({
-				"order":[],
-				"iDisplayLength":100
-			columnDefs':[{
-				'searchable': false,
-				'targets':[1,2,3,4,5,6,7,8]
-			}]
-			});
-			
-			
-		});
-	</script>
+
+<div style='float: right;'>
+  <div class="input-group" style="font-size: 15px";>
+    <label for="show entiries">Show:</label>
+     <select>
+  <option value="">10</option>
+  <option value="">20</option>
+  <option value="">50</option>
+  <option value="">All</option>
+</select> 
+    <label for="show entiries">Entries</label>
+       </small>
+	   
+  </div>
+   </div> <br><br>
    </div>
    
 <table id="dataTable" class="table table-striped table-bordered table-hover" border="1" width="100%" cellspacing="0" cellpadding="5">

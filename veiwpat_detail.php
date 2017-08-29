@@ -201,7 +201,15 @@
 					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                  </li>
-              
+              <ul class="nav side-menu">
+                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    
+                    <li><a href="profile.html"></a>
+                    </li>
+                  </ul>
+                </li>
+                </ul>
             </div>
 
           </div>
@@ -287,7 +295,9 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  
+	  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
   </button>
   
@@ -365,10 +375,8 @@ p{
              <label> Date Of Birth </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <input type="text" name="DOB"  readonly value="<?php echo $row[8]; ?>"/><br>
             </div>
-			<br>
-		 <div>
-             <label> Dr Name </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dr name" readonly value="<?php echo $row[1]; ?>" /><br>
-            </div>
+		
+		 
 			<br>
 		 <div>
              <label> Blood group </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

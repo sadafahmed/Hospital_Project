@@ -168,7 +168,7 @@ include ('session.php');
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_details.php">Death Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">

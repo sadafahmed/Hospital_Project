@@ -159,7 +159,7 @@ include ('session.php');
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_details.php">Death Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -256,7 +256,9 @@ function myFunction() {
 </script>
 </li>
 </div>
-	 
+	  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
  
           <div class="row">
@@ -285,7 +287,7 @@ h2
 		  <form method="post" action="blooddonor_form.php">
             
             <div>
-           <input type="text" name="name" class="form-control" placeholder="Name.." style="text-transform: capitalize"; autofocus/><br>
+           <input type="text" name="name" class="form-control" placeholder="Name.." autofocus/><br>
             </div>
           <div>
            <input type="text" name="age" class="form-control" placeholder="Age.." /><br>
@@ -309,12 +311,12 @@ h2
            <option name="bg">AB-</option>
              </select>
             </div><br>
-			<div>
-			<input placeholder="Donation date.."  class="form-control" type="date" onfocus="(this.type='date')" name="don_date"><br>
+			<div class="form-group">
+           <input type="date" name="don_date" class="form-control" placeholder="Donation date.."  /><br>
             </div>
             
 		  <div>
-           <input type="text" name="address" class="form-control" placeholder="Address.." style="text-transform: capitalize"; /><br>
+           <input type="text" name="address" class="form-control" placeholder="Address.."  /><br>
             </div>
 		    <div>
            <input type="text" name="contact_no" class="form-control" placeholder="Contact-no.."  /><br>

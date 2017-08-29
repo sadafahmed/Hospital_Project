@@ -14,7 +14,7 @@ include('db.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>KC </title>
+  <title>Hospital name </title>
 
   <!-- Bootstrap core CSS -->
 
@@ -161,10 +161,18 @@ include('db.php');
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_details.php">Death Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
-
+              <ul class="nav side-menu">
+                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    
+                    <li><a href="profile.html"></a>
+                    </li>
+                  </ul>
+                </li>
+                </ul>
             </div>
 
           </div>
@@ -249,7 +257,9 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  
+	  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
  
           <div class="row">
@@ -281,7 +291,7 @@ h2
             <input type="text" name="reg_id" class="form-control" placeholder="Registration ID.." autofocus/><br>
             </div>
 			<div>
-			<input type="text" name="name" class="form-control" placeholder="Patient Name.." style="text-transform: capitalize";/>
+			<input type="text" name="name" class="form-control" placeholder="Patient Name.." />
 			</div><br>
 			<div>
             <input type="text" name="age" class="form-control" placeholder="Age.." /><br>
@@ -291,11 +301,11 @@ h2
 		    <input type="radio" name="gender" value="male"> Male
 		    <input type="radio" name="gender" value="female"> Female
             </div><br>
-		    <input type="text" name="Occupation" class="form-control" placeholder="Occupation .." style="text-transform: capitalize";/>
+		    <input type="text" name="Occupation" class="form-control" placeholder="Occupation .."/>
 		    </div><br>
             
 			<div>
-            <input type="text" name="address" class="form-control" placeholder="Address.." style="text-transform: capitalize"; /><br>
+            <input type="text" name="address" class="form-control" placeholder="Address.."  /><br>
             </div>
 		<div>          
 		    <input type="text" name="room" class="form-control" placeholder="Room No.."/>

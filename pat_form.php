@@ -159,9 +159,18 @@ include('session.php');
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_details.php">Death Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
+              <ul class="nav side-menu">
+                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    
+                    <li><a href="profile.html"></a>
+                    </li>
+                  </ul>
+                </li>
+                </ul>
             </div>
 
           </div>
@@ -249,7 +258,9 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  
+	  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
  
           <div class="row">
@@ -345,7 +356,7 @@ h2
             </div>
 					
             <div>
-           <input type="text" name="name" class="form-control" placeholder="Enter Name.." style="text-transform: capitalize"; autofocus /><br>
+           <input type="text" name="name" class="form-control" placeholder="Enter Name.." autofocus /><br>
             </div>
 			<div>
 			<div>
@@ -353,7 +364,7 @@ h2
             </div>
 			
         <div>
-           <input type="text" name="dis" class="form-control" placeholder="Enter Disease.." style="text-transform: capitalize";/><br>
+           <input type="text" name="dis" class="form-control" placeholder="Enter Disease.." /><br>
             </div>
             
 			<div>
@@ -403,7 +414,7 @@ h2
            <input type="text" name="contact_no" class="form-control" placeholder="Contact-no.."  /><br>
             </div>
 			<div>
-           <input type="text" name="address" class="form-control" placeholder="Address.."  style="text-transform: capitalize";/><br>
+           <input type="text" name="address" class="form-control" placeholder="Address.."  /><br>
             </div>
                <div>
 	  <input type="submit" name="submit" value="Add New Patient" class="btn-danger btn-lg "/><br>

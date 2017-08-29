@@ -16,8 +16,8 @@
 			 $doctorId = mysqli_real_escape_string($mysqli, $_POST['dr_id']);
 			 $patId = mysqli_real_escape_string($mysqli, $_POST['pat_id']);
 			 $user_add_date= mysqli_real_escape_string($mysqli, $_POST['add_date']);
-			 $user_dis_date= mysqli_real_escape_string($mysqli, $_POST['dis_date']);																	  $user_type= $_POST['room_type'];		
-			 $user_tchrge= mysqli_real_escape_string($mysqli, $_POST['tchrg']);																	  $user_type= $_POST['room_type'];		
+			 $user_dis_date= mysqli_real_escape_string($mysqli, $_POST['dis_date']);																	  		
+			 $user_tchrge= mysqli_real_escape_string($mysqli, $_POST['tchrg']);																	  		
 			//		 echo '<pre>'; print_r($_POST); die;															  
 				 if($user_type=='') {
 				 
@@ -140,8 +140,9 @@
               <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+               <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -229,9 +230,18 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_details.php">Death Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
+              <ul class="nav side-menu">
+                <li><a><i class="glyphicon glyphicon-lock"></i> &nbsp;&nbsp;&nbsp; Profile <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    
+                    <li><a href="profile.html"></a>
+                    </li>
+                  </ul>
+                </li>
+                </ul>
             </div>
 
           </div>
@@ -319,7 +329,9 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  
+	  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
   
  <div class="row">

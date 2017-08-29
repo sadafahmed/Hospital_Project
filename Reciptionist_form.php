@@ -72,8 +72,9 @@
               <img src="images/h.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
-              <h2>John Doe</h2>
+               <?php
+        echo 'Welcome <br>'. ucfirst($_SESSION["user"]);
+        ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -160,7 +161,7 @@
       <li><a><i class="fa fa-file-text"></i>  &nbsp; Report <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="birth_detail.php">Birth Report</a></li>
-					<li><a href="death_details.php">Death Report</a></li>
+					<li><a href="death_detail.php">Death Report</a></li>
                     </ul>
                </li>
               <ul class="nav side-menu">
@@ -258,7 +259,9 @@ function myFunction() {
 </script>
 </li>
 </div>
-	  
+	  <div style='float: right;'>
+		<li><button id="exportButton" class="btn btn-sm btn-danger clearfix"><span class="fa fa-file-excel-o"></span> Export to Excel</button></li>
+</div>
   </ul>
   
 
@@ -289,16 +292,16 @@ h2
 		 <form  method="post" action="account_form.php">
             
             <div>
-           <input type="text" class="form-control" name="name" placeholder="Name..." style="text-transform: capitalize";/><br>
+           <input type="text" class="form-control" name="name" placeholder="Name..." /><br>
             </div>
 		   <div>
-           <input type="email" class="form-control" name="email" placeholder="Email..." /><br>
+           <input type="email" class="form-control" name="email" placeholder="Email..."  /><br>
             </div>
 		  <div>
           <input type="password" class="form-control" name="pass" placeholder="Password..."  /><br>
             </div>
 		    <div>
-              <input type="text" class="form-control" name="add" placeholder="Address..." style="text-transform: capitalize"; /><br>
+              <input type="text" class="form-control" name="add" placeholder="Address..."  /><br>
             </div>
             <div>
           <input type="text" class="form-control" name="contact" placeholder="Contact-no..."  /><br>
